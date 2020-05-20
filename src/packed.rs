@@ -11,6 +11,7 @@ use nom::{
     sequence::{pair, tuple},
     IResult,
 };
+use serde::Serialize;
 use std::collections::BTreeMap;
 use std::error::Error;
 use std::fs::File;
@@ -150,11 +151,11 @@ impl PackedAssets {
     }
 }
 
-#[derive(Clone, Debug, PartialOrd, PartialEq)]
+#[derive(Clone, Debug, PartialOrd, PartialEq, Serialize)]
 pub struct VersionedJson {
-    identifier: String,
-    version: u32,
-    content: Value,
+    pub identifier: String,
+    pub version: u32,
+    pub content: Value,
 }
 
 fn parse_versioned_json<'a, E: ParseError<&'a [u8]>>(
@@ -173,7 +174,7 @@ fn parse_versioned_json<'a, E: ParseError<&'a [u8]>>(
     ))
 }
 
-#[derive(Debug, Clone, PartialOrd, PartialEq)]
+#[derive(Debug, Clone, PartialOrd, PartialEq, Serialize)]
 pub struct Player {
     pub contents: VersionedJson,
 }

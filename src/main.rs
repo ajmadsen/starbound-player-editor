@@ -1,3 +1,6 @@
+use clap::{
+    app_from_crate, crate_authors, crate_description, crate_name, crate_version, Arg, ArgGroup,
+};
 use progress_bar::{
     color::{Color, Style},
     progress_bar::ProgressBar,
@@ -31,10 +34,39 @@ fn extract_assets() {
         fs::write(path, assets.file(asset).unwrap()).expect("could not write asset");
         progress.inc();
     }
+
+    println!();
+}
+
+fn extract_player() {
+    let player = parse_player("./resources/c75356ebfb10a0111500b4985132688b.player")
+        .expect("could not parse player");
+    let f = std::fs::File::create("player.json").expect("could not open output");
+    serde_json::to_writer_pretty(f, &player.contents.content).expect("could not serialize player");
 }
 
 fn main() {
-    let player = parse_player("./resources/c75356ebfb10a0111500b4985132688b.player")
-        .expect("could not parse player");
-    println!("{:?}", player);
+    let matches = app_from_crate!()
+        .arg(
+            Arg::with_name("assets")
+                .short("a")
+                .help("extract assets mode"),
+        )
+        .arg(
+            Arg::with_name("player")
+                .short("p")
+                .help("extract player mode"),
+        )
+        .group(
+            ArgGroup::with_name("mode")
+                .args(&["assets", "player"])
+                .required(true),
+        )
+        .get_matches();
+
+    if matches.is_present("assets") {
+        extract_assets();
+    } else {
+        extract_player()
+    }
 }

@@ -9,6 +9,11 @@ use nom::{
     IResult,
 };
 
+use serde::{
+    ser::{SerializeMap, SerializeSeq},
+    Serialize,
+};
+
 use std::collections::BTreeMap;
 
 use crate::json::utf8;
@@ -101,4 +106,33 @@ pub fn parse_maybe_u32<'a, E: ParseError<&'a [u8]>>(
     let (i, has) = map(take(1usize), |b| b != b"\x00")(i)?;
 
     context("Maybe<u32>", cond(has, be_u32))(i)
+}
+
+impl Serialize for Value {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        match self {
+            Value::Empty => serializer.serialize_none(),
+            Value::Float(f) => serializer.serialize_f64(*f),
+            Value::Boolean(b) => serializer.serialize_bool(*b),
+            Value::Integer(i) => serializer.serialize_i64(*i),
+            Value::String(s) => serializer.serialize_str(s),
+            Value::Array(a) => {
+                let mut seq = serializer.serialize_seq(Some(a.len()))?;
+                for el in a {
+                    seq.serialize_element(el)?;
+                }
+                seq.end()
+            }
+            Value::Object(obj) => {
+                let mut map = serializer.serialize_map(Some(obj.len()))?;
+                for (k, v) in obj {
+                    map.serialize_entry(k, v)?;
+                }
+                map.end()
+            }
+        }
+    }
 }

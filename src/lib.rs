@@ -7,6 +7,7 @@ mod json;
 mod packed;
 mod vlq;
 
+pub use bson::Value;
 pub use packed::PackedAssets;
 
 pub fn parse_packed(path: &str) -> Result<packed::PackedAssets, Box<dyn Error>> {
