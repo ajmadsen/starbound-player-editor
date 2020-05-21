@@ -4,6 +4,83 @@ import './main.scss';
 const el = document.createElement.bind(document);
 const a = document.body.appendChild.bind(document.body);
 
+const splitHex = (hex: string) => {
+  const step = Math.floor(hex.length / 3);
+  return (
+    hex.match(new RegExp(`\\w{${step}}`, 'g'))?.map((s) => parseInt(s, 16)) || [
+      0,
+      0,
+      0,
+    ]
+  );
+};
+
+const parseDirectives = (strDirectives: string) => {
+  const split = strDirectives.split('?');
+  return split
+    .filter((dir) => dir !== '')
+    .map((dir) => {
+      let els = dir.split(';');
+      if (els[0]?.includes('=')) {
+        const [dir, arg0] = els[0].split('=', 2);
+        els[0] = arg0;
+        els.unshift(dir);
+      }
+      return els;
+    });
+};
+
+const getImageData = (image: ImageBitmap) => {
+  const canvas = el('canvas');
+  canvas.width = image.width;
+  canvas.height = image.height;
+
+  const ctx = canvas.getContext('2d');
+  ctx?.drawImage(image, 0, 0);
+  return ctx?.getImageData(0, 0, image.width, image.height);
+};
+
+const replace = (image: ImageData, args: string[]) => {
+  const map: Record<number, number[]> = Object.fromEntries(
+    args.map((arg) => {
+      const [from, to] = arg.split('=');
+      const fromColor = splitHex(from)?.reduce(
+        (col, comp) => (col << 8) | comp,
+        0
+      );
+      const toColor = splitHex(to);
+      return [fromColor, toColor];
+    })
+  );
+  console.log(map);
+
+  let d = image.data;
+  for (let i = 0; i < d.length; i += 4) {
+    const c = (d[i + 0] << 16) | (d[i + 1] << 8) | d[i + 2];
+    const rep = map[c];
+    if (rep) {
+      d[i + 0] = rep[0];
+      d[i + 1] = rep[1];
+      d[i + 2] = rep[2];
+    }
+  }
+};
+
+const mutate = async (image: ImageBitmap, directives: string[][]) => {
+  const data = getImageData(image);
+  if (!data) return image;
+
+  for (const [cmd, ...args] of directives) {
+    switch (cmd) {
+      case 'replace':
+        replace(data, args);
+        break;
+    }
+  }
+
+  return createImageBitmap(data);
+};
+
 type Frames = Record<string, ImageBitmap>;
 type Identity = typeof Player['identity'];
 type FrameResource = [string, FrameData];
@@ -80,18 +157,29 @@ const loadIdentity = async (id: Identity) => {
   const backArm = await getBackArm(id);
 
   // mutate
+  const bodyDir = parseDirectives(id.bodyDirectives);
+  const fixedBody = await mutate(await loadImage(body), bodyDir);
+  const fixedHead = await mutate(await loadImage(head), bodyDir);
+  const fixedFrontArm = await mutate(await loadImage(frontArm), bodyDir);
+  const fixedBackArm = await mutate(await loadImage(backArm), bodyDir);
+
+  const hairDir = parseDirectives(id.hairDirectives);
+  const fixedHair = await mutate(await loadImage(hair), hairDir);
+
+  const maskDir = parseDirectives(id.facialMaskDirectives);
+  const fixedMask = await mutate(await loadImage(mask), maskDir);
+
+  const fhDir = parseDirectives(id.facialHairDirectives);
+  const fixedFH = await mutate(await loadImage(facialHair), fhDir);
 
   return {
-    body: await buildFrames(await loadImage(body), bodyFrames),
-    frontArm: await buildFrames(await loadImage(frontArm), bodyFrames),
-    backArm: await buildFrames(await loadImage(backArm), bodyFrames),
-    head: await buildFrames(await loadImage(head), headFrames),
-    hair: await buildFrames(await loadImage(hair), hairFrames),
-    mask: await buildFrames(await loadImage(mask), maskFrames),
-    facialHair: await buildFrames(
-      await loadImage(facialHair),
-      facialHairFrames
-    ),
+    body: await buildFrames(fixedBody, bodyFrames),
+    frontArm: await buildFrames(fixedFrontArm, bodyFrames),
+    backArm: await buildFrames(fixedBackArm, bodyFrames),
+    head: await buildFrames(fixedHead, headFrames),
+    hair: await buildFrames(fixedHair, hairFrames),
+    mask: await buildFrames(fixedMask, maskFrames),
+    facialHair: await buildFrames(fixedFH, facialHairFrames),
   };
 };
 
@@ -172,23 +260,24 @@ a(canvas);
 loadIdentity(identity).then(
   async ({ body, backArm, frontArm, head, hair, mask, facialHair }) => {
     const context = canvas.getContext('2d');
+    if (!context) return;
+
+    context.scale(3, 3);
+    context.imageSmoothingEnabled = false;
+
     const headFrame = 'normal';
     const idle = identity.personalityIdle;
     const armIdle = identity.personalityArmIdle;
 
-    context?.scale(3, 3);
-    context?.drawImage(backArm[armIdle], 0, 0);
-    context?.drawImage(body[idle], 0, 0);
-    context?.drawImage(frontArm[armIdle], 0, 0);
-    context?.drawImage(head[headFrame], 0, 0);
-    context?.drawImage(hair[headFrame], 0, 0);
-    context?.drawImage(facialHair[headFrame], 0, 0);
-    context?.drawImage(mask[headFrame], 0, 0);
+    const [hx, hy] = identity.personalityHeadOffset;
+    const [ax, ay] = identity.personalityArmOffset;
+
+    context.drawImage(backArm[armIdle], ax, ay);
+    context.drawImage(body[idle], 0, 0);
+    context.drawImage(frontArm[armIdle], ax, ay);
+    context.drawImage(head[headFrame], hx, hy);
+    context.drawImage(hair[headFrame], hx, hy);
+    context.drawImage(facialHair[headFrame], hx, hy);
+    context.drawImage(mask[headFrame], hx, hy);
   }
 );
-
-a(el('br'));
-
-const p = el('code');
-p.innerHTML = JSON.stringify(identity, undefined, '  ');
-a(p);
