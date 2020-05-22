@@ -1,14 +1,16 @@
 {
   "name": "node-starbound-assets",
+  "private": true,
   "version": "0.1.0",
   "description": "",
   "main": "lib/index.js",
   "author": "Adam Madsen <madsen.adam@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "neon-cli": "^0.4.0"
+    "neon-cli": "^0.4.0",
+    "starbound-assets": "^0.1.0"
   },
   "scripts": {
-    "install": "neon build"
+    "install": "neon build -r"
   }
 }

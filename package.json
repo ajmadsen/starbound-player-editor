@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "workspaces": [
+    "node-starbound-assets",
+    "starbound-assets",
+    "viewer-app"
+  ]
+}

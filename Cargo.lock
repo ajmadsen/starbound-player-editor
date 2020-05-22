@@ -250,7 +250,7 @@ dependencies = [
  "neon-build",
  "neon-serde",
  "serde_bytes",
- "starbound-player-editor",
+ "starbound-assets",
 ]
 
 [[package]]
@@ -454,7 +454,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "starbound-player-editor"
+name = "starbound-assets"
 version = "0.1.0"
 dependencies = [
  "clap",

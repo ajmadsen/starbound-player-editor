@@ -1,5 +1,5 @@
 use neon::prelude::*;
-use starbound_player_editor::{parse_packed, parse_player, PackedAssets};
+use starbound_assets::{parse_packed, parse_player, PackedAssets};
 
 declare_types! {
     pub class JsPackedAssets for PackedAssets {

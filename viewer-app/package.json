@@ -1,6 +1,7 @@
 {
   "name": "viewer-app",
-  "productName": "viewer-app",
+  "private": true,
+  "productName": "Starbound Player Editor",
   "version": "1.0.0",
   "description": "My Electron application description",
   "main": ".webpack/main",
@@ -91,6 +92,7 @@
     "webpack": "^4.43.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "node-starbound-assets": "^0.1.0"
   }
 }
