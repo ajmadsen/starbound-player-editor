@@ -16,3 +16,6 @@ clap = { version = "2.33.1", features = ["color"] }
 
 [profile.dev]
 debug = 2
+
+[workspace]
+members = ["node-starbound-assets/native"]

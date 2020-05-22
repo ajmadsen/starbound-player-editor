@@ -8,14 +8,14 @@ mod packed;
 mod vlq;
 
 pub use bson::Value;
-pub use packed::PackedAssets;
+pub use packed::{PackedAssets, Player};
 
-pub fn parse_packed(path: &str) -> Result<packed::PackedAssets, Box<dyn Error>> {
+pub fn parse_packed(path: &str) -> Result<PackedAssets, Box<dyn Error>> {
     let f = File::open(path)?;
     packed::PackedAssets::new(&f)
 }
 
-pub fn parse_player(path: &str) -> Result<packed::Player, Box<dyn Error>> {
+pub fn parse_player(path: &str) -> Result<Player, Box<dyn Error>> {
     let f = File::open(path)?;
     packed::Player::new(&f)
 }
