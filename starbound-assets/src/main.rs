@@ -5,7 +5,7 @@ use progress_bar::{
     color::{Color, Style},
     progress_bar::ProgressBar,
 };
-use starbound_player_editor::{parse_packed, parse_player};
+use starbound_assets::{parse_packed, parse_player};
 use std::collections::BTreeSet;
 use std::fs;
 use std::path::PathBuf;

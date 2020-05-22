@@ -15,15 +15,6 @@
       "environment": [{ "name": "RUST_BACKTRACE", "value": "1" }],
       "externalConsole": false,
       "requireExactSource": false
-    },
-    {
-      "type": "lldb",
-      "request": "launch",
-      "name": "Launch",
-      "program": "${workspaceFolder}/target/debug/starbound-player-editor.exe",
-      "args": [],
-      "cwd": "${workspaceFolder}",
-      "sourceLanguages": ["rust"]
     }
   ]
 }

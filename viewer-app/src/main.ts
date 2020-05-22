@@ -1,4 +1,3 @@
-import Player from './player.json';
 import './main.scss';
 import { debounce } from 'lodash';
 
@@ -21,7 +20,7 @@ const parseDirectives = (strDirectives: string) => {
   return split
     .filter((dir) => dir !== '')
     .map((dir) => {
-      let els = dir.split(';');
+      const els = dir.split(';');
       if (els[0]?.includes('=')) {
         const [dir, arg0] = els[0].split('=', 2);
         els[0] = arg0;
@@ -82,7 +81,6 @@ const mutable = (image: ImageData) => (mutation: Mutation) => {
   return image;
 };
 
-type Identity = typeof Player['identity'];
 type FrameResource = [string, FrameData];
 
 const getBody = async ({ species, gender }: Identity) =>
@@ -156,7 +154,7 @@ const SpriteSheet = (sheet: ImageBitmap, frames: FrameData) => {
   if (!ctx) throw new Error('could not create rendering context');
 
   const clipFrames = () => {
-    let clipping: Record<string, [number, number, number, number]> = {};
+    const clipping: Record<string, [number, number, number, number]> = {};
 
     ctx.beginPath();
     if (frames.frameGrid) {
@@ -205,7 +203,7 @@ const SpriteSheet = (sheet: ImageBitmap, frames: FrameData) => {
   ctx.drawImage(sheet, 0, 0);
 
   function getPalette(d: Uint8ClampedArray) {
-    let palette: Set<number> = new Set();
+    const palette: Set<number> = new Set();
     for (let i = 0; i < d.length; i += 4) {
       const c = (d[i] << 16) | (d[i + 1] << 8) | d[i + 2];
       if (c || d[i + 3] > 0) palette.add(c);
@@ -262,7 +260,7 @@ const SpriteSheet = (sheet: ImageBitmap, frames: FrameData) => {
     getColorMapping(mutation: Mutation) {
       const im = ctx.createImageData(1, 1);
       const data = im.data;
-      let colorMap = new Map<number, number>();
+      const colorMap = new Map<number, number>();
       this.initialPalette.forEach((c) => {
         data[0] = (c >> 16) & 0xff;
         data[1] = (c >> 8) & 0xff;
@@ -279,6 +277,19 @@ const SpriteSheet = (sheet: ImageBitmap, frames: FrameData) => {
 };
 
 type SpriteSheet = ReturnType<typeof SpriteSheet>;
+
+const loadImage = async (src: string): Promise<ImageBitmap> => {
+  const image = new Image();
+  return new Promise((resolve, reject) => {
+    image.onload = function () {
+      resolve(createImageBitmap(image));
+    };
+    image.onerror = function (err) {
+      reject(err);
+    };
+    image.src = src;
+  });
+};
 
 const loadIdentity = async (id: Identity) => {
   const [body, bodyFrames] = await getBody(id);
@@ -327,21 +338,6 @@ const loadIdentity = async (id: Identity) => {
     mask: maskSS,
   };
 };
-
-const loadImage = async (src: string): Promise<ImageBitmap> => {
-  let image = new Image();
-  return new Promise((resolve, reject) => {
-    image.onload = function () {
-      resolve(createImageBitmap(image));
-    };
-    image.onerror = function (err) {
-      reject(err);
-    };
-    image.src = src;
-  });
-};
-
-const { identity } = Player;
 
 const canvas = el('canvas');
 canvas.width = 150;

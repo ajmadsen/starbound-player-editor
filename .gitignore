@@ -1,3 +1,5 @@
 /**/target
 /out
 /resources
+/node_modules
+.yarn

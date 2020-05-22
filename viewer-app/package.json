@@ -85,11 +85,13 @@
     "node-loader": "^0.6.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
+    "source-map-support": "^0.5.19",
     "style-loader": "^0.23.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.0",
     "url-loader": "^4.1.0",
-    "webpack": "^4.43.0"
+    "webpack": "^4.43.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",

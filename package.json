@@ -1,8 +1,22 @@
 {
+  "name": "starbound-player-editor",
   "private": true,
-  "workspaces": [
-    "node-starbound-assets",
-    "starbound-assets",
-    "viewer-app"
-  ]
+  "workspaces": {
+    "packages": [
+      "node-starbound-assets",
+      "starbound-assets",
+      "viewer-app"
+    ],
+    "nohoist": [
+      "**/neon-cli",
+      "**/neon-cli/**",
+      "**/electron",
+      "**/electron/**"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "typescript": "^3.9.3",
+    "typescript-language-server": "^0.4.0"
+  }
 }

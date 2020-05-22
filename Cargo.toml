@@ -1,2 +1,6 @@
 [workspace]
 members = ["node-starbound-assets/native", "starbound-assets"]
+exclude = [
+  "node_modules/starbound-assets",
+  "node_modules/node-starbound-assets/native",
+]
