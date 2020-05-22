@@ -38,9 +38,8 @@ fn extract_assets() {
     println!();
 }
 
-fn extract_player() {
-    let player = parse_player("./resources/c75356ebfb10a0111500b4985132688b.player")
-        .expect("could not parse player");
+fn extract_player(player_path: &str) {
+    let player = parse_player(player_path).expect("could not parse player");
     let f = std::fs::File::create("player.json").expect("could not open output");
     serde_json::to_writer_pretty(f, &player.contents.content).expect("could not serialize player");
 }
@@ -55,6 +54,7 @@ fn main() {
         .arg(
             Arg::with_name("player")
                 .short("p")
+                .takes_value(true)
                 .help("extract player mode"),
         )
         .group(
@@ -67,6 +67,6 @@ fn main() {
     if matches.is_present("assets") {
         extract_assets();
     } else {
-        extract_player()
+        extract_player(matches.value_of("player").unwrap())
     }
 }
