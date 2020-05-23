@@ -83,67 +83,67 @@ const mutable = (image: ImageData) => (mutation: Mutation) => {
 
 type FrameResource = [string, FrameData];
 
-const getBody = async ({ species, gender }: Identity) =>
-  [
-    (await import(`../out/humanoid/${species}/${gender}body.png`)).default,
-    (await import(`../out/humanoid/${gender}body.frames`)).default,
-  ] as FrameResource;
+// const getBody = async ({ species, gender }: Identity) =>
+//   [
+//     (await import(`../out/humanoid/${species}/${gender}body.png`)).default,
+//     (await import(`../out/humanoid/${gender}body.frames`)).default,
+//   ] as FrameResource;
 
-const getBackArm = async ({ species }: Identity) =>
-  (await import(`../out/humanoid/${species}/backarm.png`)).default as string;
+// const getBackArm = async ({ species }: Identity) =>
+//   (await import(`../out/humanoid/${species}/backarm.png`)).default as string;
 
-const getFrontArm = async ({ species }: Identity) =>
-  (await import(`../out/humanoid/${species}/frontarm.png`)).default as string;
+// const getFrontArm = async ({ species }: Identity) =>
+//   (await import(`../out/humanoid/${species}/frontarm.png`)).default as string;
 
-const getHead = async ({ species, gender }: Identity) =>
-  [
-    (await import(`../out/humanoid/${species}/${gender}head.png`)).default,
-    (await import(`../out/humanoid/${gender}head.frames`)).default,
-  ] as FrameResource;
+// const getHead = async ({ species, gender }: Identity) =>
+//   [
+//     (await import(`../out/humanoid/${species}/${gender}head.png`)).default,
+//     (await import(`../out/humanoid/${gender}head.frames`)).default,
+//   ] as FrameResource;
 
-const getFacialHair = async ({
-  species,
-  facialHairGroup,
-  facialHairType,
-}: Identity) =>
-  [
-    (
-      await import(
-        `../out/humanoid/${species}/${facialHairGroup}/${facialHairType}.png`
-      )
-    ).default,
-    (
-      await import(
-        `../out/humanoid/${species}/${facialHairGroup}/default.frames`
-      )
-    ).default,
-  ] as FrameResource;
+// const getFacialHair = async ({
+//   species,
+//   facialHairGroup,
+//   facialHairType,
+// }: Identity) =>
+//   [
+//     (
+//       await import(
+//         `../out/humanoid/${species}/${facialHairGroup}/${facialHairType}.png`
+//       )
+//     ).default,
+//     (
+//       await import(
+//         `../out/humanoid/${species}/${facialHairGroup}/default.frames`
+//       )
+//     ).default,
+//   ] as FrameResource;
 
-const getHair = async ({ species, hairGroup, hairType }: Identity) =>
-  [
-    (await import(`../out/humanoid/${species}/${hairGroup}/${hairType}.png`))
-      .default,
-    (await import(`../out/humanoid/${species}/${hairGroup}/default.frames`))
-      .default,
-  ] as FrameResource;
+// const getHair = async ({ species, hairGroup, hairType }: Identity) =>
+//   [
+//     (await import(`../out/humanoid/${species}/${hairGroup}/${hairType}.png`))
+//       .default,
+//     (await import(`../out/humanoid/${species}/${hairGroup}/default.frames`))
+//       .default,
+//   ] as FrameResource;
 
-const getMask = async ({
-  species,
-  facialMaskGroup,
-  facialMaskType,
-}: Identity) =>
-  [
-    (
-      await import(
-        `../out/humanoid/${species}/${facialMaskGroup}/${facialMaskType}.png`
-      )
-    ).default,
-    (
-      await import(
-        `../out/humanoid/${species}/${facialMaskGroup}/default.frames`
-      )
-    ).default,
-  ] as FrameResource;
+// const getMask = async ({
+//   species,
+//   facialMaskGroup,
+//   facialMaskType,
+// }: Identity) =>
+//   [
+//     (
+//       await import(
+//         `../out/humanoid/${species}/${facialMaskGroup}/${facialMaskType}.png`
+//       )
+//     ).default,
+//     (
+//       await import(
+//         `../out/humanoid/${species}/${facialMaskGroup}/default.frames`
+//       )
+//     ).default,
+//   ] as FrameResource;
 
 const SpriteSheet = (sheet: ImageBitmap, frames: FrameData) => {
   const canvas = el('canvas');
@@ -291,53 +291,53 @@ const loadImage = async (src: string): Promise<ImageBitmap> => {
   });
 };
 
-const loadIdentity = async (id: Identity) => {
-  const [body, bodyFrames] = await getBody(id);
-  const [head, headFrames] = await getHead(id);
-  const [hair, hairFrames] = await getHair(id);
-  const [mask, maskFrames] = await getMask(id);
-  const [facialHair, facialHairFrames] = await getFacialHair(id);
-  const frontArm = await getFrontArm(id);
-  const backArm = await getBackArm(id);
+// const loadIdentity = async (id: Identity) => {
+//   const [body, bodyFrames] = await getBody(id);
+//   const [head, headFrames] = await getHead(id);
+//   const [hair, hairFrames] = await getHair(id);
+//   const [mask, maskFrames] = await getMask(id);
+//   const [facialHair, facialHairFrames] = await getFacialHair(id);
+//   const frontArm = await getFrontArm(id);
+//   const backArm = await getBackArm(id);
 
-  const bodySS = SpriteSheet(await loadImage(body), bodyFrames).applyDirectives(
-    id.bodyDirectives
-  );
-  const headSS = SpriteSheet(await loadImage(head), headFrames).applyDirectives(
-    id.bodyDirectives
-  );
-  const fArmSS = SpriteSheet(
-    await loadImage(frontArm),
-    bodyFrames
-  ).applyDirectives(id.bodyDirectives);
-  const bArmSS = SpriteSheet(
-    await loadImage(backArm),
-    bodyFrames
-  ).applyDirectives(id.bodyDirectives);
+//   const bodySS = SpriteSheet(await loadImage(body), bodyFrames).applyDirectives(
+//     id.bodyDirectives
+//   );
+//   const headSS = SpriteSheet(await loadImage(head), headFrames).applyDirectives(
+//     id.bodyDirectives
+//   );
+//   const fArmSS = SpriteSheet(
+//     await loadImage(frontArm),
+//     bodyFrames
+//   ).applyDirectives(id.bodyDirectives);
+//   const bArmSS = SpriteSheet(
+//     await loadImage(backArm),
+//     bodyFrames
+//   ).applyDirectives(id.bodyDirectives);
 
-  const hairSS = SpriteSheet(await loadImage(hair), hairFrames).applyDirectives(
-    id.hairDirectives
-  );
+//   const hairSS = SpriteSheet(await loadImage(hair), hairFrames).applyDirectives(
+//     id.hairDirectives
+//   );
 
-  const fHairSS = SpriteSheet(
-    await loadImage(facialHair),
-    facialHairFrames
-  ).applyDirectives(id.facialHairDirectives);
+//   const fHairSS = SpriteSheet(
+//     await loadImage(facialHair),
+//     facialHairFrames
+//   ).applyDirectives(id.facialHairDirectives);
 
-  const maskSS = SpriteSheet(await loadImage(mask), maskFrames).applyDirectives(
-    id.facialMaskDirectives
-  );
+//   const maskSS = SpriteSheet(await loadImage(mask), maskFrames).applyDirectives(
+//     id.facialMaskDirectives
+//   );
 
-  return {
-    body: bodySS,
-    frontArm: fArmSS,
-    backArm: bArmSS,
-    head: headSS,
-    hair: hairSS,
-    facialHair: fHairSS,
-    mask: maskSS,
-  };
-};
+//   return {
+//     body: bodySS,
+//     frontArm: fArmSS,
+//     backArm: bArmSS,
+//     head: headSS,
+//     hair: hairSS,
+//     facialHair: fHairSS,
+//     mask: maskSS,
+//   };
+// };
 
 const canvas = el('canvas');
 canvas.width = 150;
@@ -385,68 +385,77 @@ const pixContainer = (
   return cont;
 };
 
-loadIdentity(identity).then(
-  async ({ body, backArm, frontArm, head, hair, mask, facialHair }) => {
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+// loadIdentity(identity).then(
+//   async ({ body, backArm, frontArm, head, hair, mask, facialHair }) => {
+//     const ctx = canvas.getContext('2d');
+//     if (!ctx) return;
 
-    ctx.scale(3, 3);
-    ctx.imageSmoothingEnabled = false;
+//     ctx.scale(3, 3);
+//     ctx.imageSmoothingEnabled = false;
 
-    const headFrame = 'normal';
-    const idle = identity.personalityIdle;
-    const armIdle = identity.personalityArmIdle;
+//     const headFrame = 'normal';
+//     const idle = identity.personalityIdle;
+//     const armIdle = identity.personalityArmIdle;
 
-    const [hx, hy] = identity.personalityHeadOffset;
-    const [ax, ay] = identity.personalityArmOffset;
+//     const [hx, hy] = identity.personalityHeadOffset;
+//     const [ax, ay] = identity.personalityArmOffset;
 
-    const redraw = () => {
-      backArm.draw(ctx, armIdle, ax, ay);
-      body.draw(ctx, idle, 0, 0);
-      frontArm.draw(ctx, armIdle, ax, ay);
-      head.draw(ctx, headFrame, hx, hy);
-      hair.draw(ctx, headFrame, hx, hy);
-      facialHair.draw(ctx, headFrame, hx, hy);
-      mask.draw(ctx, headFrame, hx, hy);
-    };
-    redraw();
+//     const redraw = () => {
+//       backArm.draw(ctx, armIdle, ax, ay);
+//       body.draw(ctx, idle, 0, 0);
+//       frontArm.draw(ctx, armIdle, ax, ay);
+//       head.draw(ctx, headFrame, hx, hy);
+//       hair.draw(ctx, headFrame, hx, hy);
+//       facialHair.draw(ctx, headFrame, hx, hy);
+//       mask.draw(ctx, headFrame, hx, hy);
+//     };
+//     redraw();
 
-    const onInput = (initial: number | string, ...sprites: SpriteSheet[]) => {
-      let last = fmtColor(initial);
+//     const onInput = (initial: number | string, ...sprites: SpriteSheet[]) => {
+//       let last = fmtColor(initial);
 
-      return debounce((color: string) => {
-        const to = color.substr(1);
-        sprites.forEach((s) => s.applyDirectives(`?replace;${last}=${to}`));
-        last = to;
-        redraw();
-      }, 5);
-    };
+//       return debounce((color: string) => {
+//         const to = color.substr(1);
+//         sprites.forEach((s) => s.applyDirectives(`?replace;${last}=${to}`));
+//         last = to;
+//         redraw();
+//       }, 5);
+//     };
 
-    const picker = (title: string, ...sprites: SpriteSheet[]) => {
-      const container = el('div');
-      container.className = 'picker';
+//     const picker = (title: string, ...sprites: SpriteSheet[]) => {
+//       const container = el('div');
+//       container.className = 'picker';
 
-      const t = el('h4');
-      t.innerText = title;
-      container.appendChild(t);
+//       const t = el('h4');
+//       t.innerText = title;
+//       container.appendChild(t);
 
-      const colorSet = sprites
-        .map((s) => s.colorMapping)
-        .reduce(
-          (all, one) => (one?.forEach((v) => all.add(v)), all),
-          new Set<number>()
-        );
+//       const colorSet = sprites
+//         .map((s) => s.colorMapping)
+//         .reduce(
+//           (all, one) => (one?.forEach((v) => all.add(v)), all),
+//           new Set<number>()
+//         );
 
-      colorSet.forEach((c) =>
-        container.appendChild(pixContainer(c, onInput(c, ...sprites)))
-      );
+//       colorSet.forEach((c) =>
+//         container.appendChild(pixContainer(c, onInput(c, ...sprites)))
+//       );
 
-      return container;
-    };
+//       return container;
+//     };
 
-    a(picker('Body', body, head, backArm, frontArm));
-    a(picker('Hair', hair));
-    a(picker('Facial Hair', facialHair));
-    a(picker('Mask', mask));
-  }
-);
+//     a(picker('Body', body, head, backArm, frontArm));
+//     a(picker('Hair', hair));
+//     a(picker('Facial Hair', facialHair));
+//     a(picker('Mask', mask));
+//   }
+// );
+
+window.addEventListener('message', (ev) => {
+  console.log('got message', ev);
+});
+
+// ipcMain.on('player-selected', (event, [args]) => {
+//   const { player } = args;
+//   console.log('got player', player);
+// });

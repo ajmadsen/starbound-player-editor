@@ -1,16 +1,50 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
+import { openPlayer } from './loader';
+import path from 'path';
+
 declare const MAIN_WINDOW_WEBPACK_ENTRY: any;
+declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: any;
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
-if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
+if (require('electron-squirrel-startup')) {
+  // eslint-disable-line global-require
   app.quit();
 }
+
+Menu.setApplicationMenu(
+  Menu.buildFromTemplate([
+    {
+      label: 'File',
+      submenu: [
+        { label: 'Open', click: openPlayer },
+        { type: 'separator' },
+        { label: 'Exit', role: 'quit' },
+      ],
+    },
+    {
+      label: 'Window',
+      submenu: [
+        {
+          label: 'Force Reload',
+          role: 'forceReload',
+        },
+      ],
+    },
+  ])
+);
 
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true,
+      enableRemoteModule: false,
+      sandbox: true,
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+    },
   });
 
   // and load the index.html of the app.

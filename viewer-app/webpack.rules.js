@@ -11,6 +11,7 @@ module.exports = [
       loader: '@marshallofsound/webpack-asset-relocator-loader',
       options: {
         outputAssetBase: 'native_modules',
+        debugLog: true,
       },
     },
   },
@@ -20,8 +21,8 @@ module.exports = [
     use: {
       loader: 'ts-loader',
       options: {
-        transpileOnly: true
-      }
-    }
+        transpileOnly: true,
+      },
+    },
   },
 ];

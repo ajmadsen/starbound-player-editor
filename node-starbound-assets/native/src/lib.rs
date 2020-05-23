@@ -1,12 +1,103 @@
 use neon::prelude::*;
-use starbound_assets::{parse_packed, parse_player, PackedAssets};
+use starbound_assets::{parse_packed, parse_player, PackedAssets as OrigPackedAssets, Player};
+use std::sync::{Arc, Mutex};
+
+#[derive(Clone)]
+pub struct PackedAssets {
+    inner: Arc<Mutex<Option<OrigPackedAssets>>>,
+}
+
+struct AssetsLoader(String);
+const ASSETS_ERR: &'static str =
+    "Assets loader not initialized. Do not directly construct this class.";
+
+impl Task for AssetsLoader {
+    type Output = OrigPackedAssets;
+    type Error = String;
+    type JsEvent = JsPackedAssets;
+
+    fn perform(&self) -> Result<Self::Output, Self::Error> {
+        parse_packed(&self.0).map_err(|e| e.to_string())
+    }
+
+    fn complete<'a>(
+        self,
+        cx: TaskContext<'a>,
+        result: Result<Self::Output, Self::Error>,
+    ) -> JsResult<Self::JsEvent> {
+        let mut cx = cx;
+        let assets = result.or_else(|e| cx.throw_error(e))?;
+        let mut wrapper = JsPackedAssets::new::<_, JsUndefined, _>(&mut cx, vec![])?;
+        cx.borrow_mut(&mut wrapper, |ref mut wrapper| {
+            let mut inner = Arc::get_mut(&mut wrapper.inner).unwrap().lock().unwrap();
+            inner.replace(assets);
+        });
+        Ok(wrapper)
+    }
+}
+
+struct FileLoader(PackedAssets, String);
+
+impl Task for FileLoader {
+    type Output = Vec<u8>;
+    type Error = String;
+    type JsEvent = JsArrayBuffer;
+
+    fn perform(&self) -> Result<Self::Output, Self::Error> {
+        let lock = self.0.inner.lock().unwrap();
+
+        lock.as_ref()
+            .unwrap()
+            .file(&self.1)
+            .ok_or_else(|| "could not find the file specified".to_string())
+            .map(|bytes| bytes.to_vec())
+    }
+
+    fn complete<'b>(
+        self,
+        cx: TaskContext<'b>,
+        result: Result<Self::Output, Self::Error>,
+    ) -> JsResult<Self::JsEvent> {
+        let mut cx = cx;
+
+        let result = result.or_else(|e| cx.throw_error(e))?;
+        let mut buf = cx.array_buffer(result.len() as u32)?;
+        cx.borrow_mut(&mut buf, |buf| {
+            buf.as_mut_slice().clone_from_slice(&result[..])
+        });
+
+        Ok(buf)
+    }
+}
+
+struct PlayerLoader(String);
+
+impl Task for PlayerLoader {
+    type Output = Player;
+    type Error = String;
+    type JsEvent = JsValue;
+
+    fn perform(&self) -> Result<Self::Output, Self::Error> {
+        parse_player(&self.0).map_err(|e| e.to_string())
+    }
+
+    fn complete<'a>(
+        self,
+        cx: TaskContext<'a>,
+        result: Result<Self::Output, Self::Error>,
+    ) -> JsResult<Self::JsEvent> {
+        let mut cx = cx;
+        let result = result.or_else(|e| cx.throw_error(e))?;
+        Ok(neon_serde::to_value(&mut cx, &result)?)
+    }
+}
 
 declare_types! {
     pub class JsPackedAssets for PackedAssets {
-        init(mut cx) {
-            let path = cx.argument::<JsString>(0)?.value();
-
-            Ok(parse_packed(&path).unwrap())
+        init(_) {
+            Ok(PackedAssets{
+                inner: Arc::new(Mutex::new(None))
+            })
         }
 
         method assets(mut cx) {
@@ -14,6 +105,8 @@ declare_types! {
             let assets = {
                 let guard = cx.lock();
                 let this = this.borrow(&guard);
+                let this = this.inner.lock().unwrap();
+                let this = this.as_ref().expect(ASSETS_ERR);
                 let assets = this.assets();
                 assets.into_iter().map(|s| s.to_string()).collect::<Vec<_>>()
             };
@@ -26,6 +119,8 @@ declare_types! {
             let metadata = {
                 let guard = cx.lock();
                 let this = this.borrow(&guard);
+                let this = this.inner.lock().unwrap();
+                let this = this.as_ref().expect(ASSETS_ERR);
                 let metadata = this.metadata();
                 metadata
             };
@@ -33,39 +128,41 @@ declare_types! {
             Ok(neon_serde::to_value(&mut cx, &metadata)?)
         }
 
-        method get_file(mut cx) {
+        method getFile(mut cx) {
             let this = cx.this();
             let path = cx.argument::<JsString>(0)?.value();
+            let cb = cx.argument::<JsFunction>(1)?;
 
-            let len = {
+            let inner = {
                 let guard = cx.lock();
                 let this = this.borrow(&guard);
-                let file = this.file(&path).expect("file does not exist in assets");
-                file.len()
+                this.clone()
             };
 
-            let mut buf = JsArrayBuffer::new(&mut cx, len as u32)?;
-            {
-                let guard = cx.lock();
-                let this = this.borrow(&guard);
-                let file = this.file(&path).unwrap();
-                let buf = buf.borrow_mut(&guard);
-                buf.as_mut_slice().copy_from_slice(file);
-            }
+            FileLoader(inner, path).schedule(cb);
 
-            Ok(buf.upcast())
+            Ok(cx.undefined().upcast())
         }
     }
 }
 
-fn js_parse_player(mut cx: FunctionContext) -> JsResult<JsValue> {
+fn js_parse_player(mut cx: FunctionContext) -> JsResult<JsUndefined> {
     let path = cx.argument::<JsString>(0)?.value();
-    let player = parse_player(&path).unwrap();
-    Ok(neon_serde::to_value(&mut cx, &player)?)
+    let cb = cx.argument::<JsFunction>(1)?;
+    PlayerLoader(path).schedule(cb);
+    Ok(cx.undefined())
+}
+
+fn js_parse_assets(mut cx: FunctionContext) -> JsResult<JsUndefined> {
+    let path = cx.argument::<JsString>(0)?.value();
+    let cb = cx.argument::<JsFunction>(1)?;
+    AssetsLoader(path).schedule(cb);
+    Ok(cx.undefined())
 }
 
 register_module!(mut m, {
+    m.export_function("parsePlayer", js_parse_player)?;
+    m.export_function("parseAssets", js_parse_assets)?;
     m.export_class::<JsPackedAssets>("PackedAssets")?;
-    m.export_function("parse_player", js_parse_player)?;
     Ok(())
 });

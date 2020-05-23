@@ -11,7 +11,11 @@
       "**/neon-cli",
       "**/neon-cli/**",
       "**/electron",
-      "**/electron/**"
+      "**/electron/**",
+      "**/electron-rebuild",
+      "**/electron-rebuild/**",
+      "**/electron-build-env",
+      "**/electron-build-env/**"
     ]
   },
   "devDependencies": {

@@ -1,6 +1,7 @@
 const nodeExternals = require('webpack-node-externals'); // eslint-disable-line
 const path = require('path'); // eslint-disable-line
 
+/** @type {import('webpack').Configuration} */
 module.exports = {
   /**
    * This is the main entry point for your application, it's the first file
