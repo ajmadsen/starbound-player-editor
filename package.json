@@ -6,21 +6,20 @@
       "node-starbound-assets",
       "starbound-assets",
       "viewer-app"
-    ],
-    "nohoist": [
-      "**/neon-cli",
-      "**/neon-cli/**",
-      "**/electron",
-      "**/electron/**",
-      "**/electron-rebuild",
-      "**/electron-rebuild/**",
-      "**/electron-build-env",
-      "**/electron-build-env/**"
     ]
   },
   "devDependencies": {
     "eslint": "^7.0.0",
+    "prettier": "^2.0.5",
     "typescript": "^3.9.3",
     "typescript-language-server": "^0.4.0"
+  },
+  "dependenciesMeta": {
+    "node-starbound-assets": {
+      "unplugged": true
+    }
+  },
+  "resolutions": {
+    "app-builder-bin": "portal:../app-builder/app-builder-bin"
   }
 }

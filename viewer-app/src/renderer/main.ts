@@ -1,4 +1,8 @@
+/* eslint-disable */
+
 import './main.scss';
+
+/*
 import { debounce } from 'lodash';
 
 const el = document.createElement.bind(document);
@@ -276,7 +280,7 @@ const SpriteSheet = (sheet: ImageBitmap, frames: FrameData) => {
   };
 };
 
-type SpriteSheet = ReturnType<typeof SpriteSheet>;
+// type SpriteSheet = ReturnType<typeof SpriteSheet>;
 
 const loadImage = async (src: string): Promise<ImageBitmap> => {
   const image = new Image();
@@ -450,7 +454,7 @@ const pixContainer = (
 //     a(picker('Mask', mask));
 //   }
 // );
-
+*/
 window.addEventListener('message', (ev) => {
   console.log('got message', ev);
 });

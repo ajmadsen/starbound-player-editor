@@ -190,7 +190,6 @@ dependencies = [
 [[package]]
 name = "neon"
 version = "0.4.0"
-source = "git+https://github.com/neon-bindings/neon#661b5b4ee6298fb0b64c55230d1d0b9473735da8"
 dependencies = [
  "cslice",
  "neon-build",
@@ -201,7 +200,6 @@ dependencies = [
 [[package]]
 name = "neon-build"
 version = "0.4.0"
-source = "git+https://github.com/neon-bindings/neon#661b5b4ee6298fb0b64c55230d1d0b9473735da8"
 dependencies = [
  "cfg-if",
  "neon-sys",
@@ -210,7 +208,6 @@ dependencies = [
 [[package]]
 name = "neon-runtime"
 version = "0.4.0"
-source = "git+https://github.com/neon-bindings/neon#661b5b4ee6298fb0b64c55230d1d0b9473735da8"
 dependencies = [
  "cfg-if",
  "neon-sys",
@@ -232,7 +229,6 @@ dependencies = [
 [[package]]
 name = "neon-sys"
 version = "0.4.0"
-source = "git+https://github.com/neon-bindings/neon#661b5b4ee6298fb0b64c55230d1d0b9473735da8"
 dependencies = [
  "cc",
  "regex",

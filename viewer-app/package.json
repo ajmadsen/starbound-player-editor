@@ -4,15 +4,13 @@
   "productName": "Starbound Player Editor",
   "version": "1.0.0",
   "description": "My Electron application description",
-  "main": ".webpack/main",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "builddep": "electron-build-env neon build -p ../node-starbound-assets -r",
-    "postinstall": "yarn run builddep",
-    "lint": "eslint --ext .ts ."
+    "start": "electron-webpack dev",
+    "rebuild-deps": "electron-builder install-app-deps",
+    "lint": "eslint --ext .ts .",
+    "build-preload": "webpack --config webpack.preload.js",
+    "stuff": "cmd /c \"set\""
   },
   "keywords": [],
   "author": {
@@ -20,83 +18,60 @@
     "email": "madsen.adam@gmail.com"
   },
   "license": "MIT",
-  "config": {
-    "forge": {
-      "electronRebuildConfig": {
-        "extraModules": [
-          "node-starbound-assets"
-        ]
-      },
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "viewer_app"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ],
-      "plugins": [
-        [
-          "@electron-forge/plugin-webpack",
-          {
-            "mainConfig": "./webpack.main.config.js",
-            "renderer": {
-              "config": "./webpack.renderer.config.js",
-              "entryPoints": [
-                {
-                  "html": "./src/index.html",
-                  "js": "./src/renderer.ts",
-                  "preload": {
-                    "js": "./src/preload.ts"
-                  },
-                  "name": "main_window"
-                }
-              ]
-            }
-          }
-        ]
-      ]
+  "electronWebpack": {
+    "main": {
+      "sourceDirectory": "src/main",
+      "webpackConfig": "webpack.config.overrides.js"
+    },
+    "renderer": {
+      "sourceDirectory": null
     }
   },
+  "build": {
+    "appId": "ai.possum.starbound-player-editor",
+    "productName": "Starbound Player Editor",
+    "files": [
+      "!dist${/*}",
+      "**/node_modules/*",
+      {
+        "from": "dist",
+        "filter": [
+          "@(main|renderer)/*.@(js|html)",
+          "*.@(css|js)"
+        ]
+      }
+    ],
+    "extends": null,
+    "extraMetadata": {
+      "main": "main/main.js"
+    },
+    "asarUnpack": [
+      "dist/preload.js"
+    ]
+  },
   "devDependencies": {
-    "@electron-forge/cli": "6.0.0-beta.51",
-    "@electron-forge/maker-deb": "6.0.0-beta.51",
-    "@electron-forge/maker-rpm": "6.0.0-beta.51",
-    "@electron-forge/maker-squirrel": "6.0.0-beta.51",
-    "@electron-forge/maker-zip": "6.0.0-beta.51",
-    "@electron-forge/plugin-webpack": "6.0.0-beta.51",
-    "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
     "@types/lodash": "^4.14.152",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
     "css-loader": "^3.0.0",
+    "ejs-loader": "^0.3.6",
     "electron": "9.0.0",
-    "electron-build-env": "^0.2.0",
-    "electron-rebuild": "^1.11.0",
+    "electron-builder": "^22.6.1",
+    "electron-webpack": "^2.8.2",
+    "electron-webpack-ts": "^4.0.1",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.0",
+    "extract-css-chunks-webpack-plugin": "^4.7.5",
     "file-loader": "^6.0.0",
-    "fork-ts-checker-webpack-plugin": "^3.1.1",
+    "fork-ts-checker-webpack-plugin": "^4.1.5",
+    "html-webpack-plugin": "^4.3.0",
     "json5-loader": "^4.0.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "module-replace-webpack-plugin": "^0.0.12",
     "neon-cli": "^0.4.0",
     "node-loader": "^0.6.0",
     "node-sass": "^4.14.1",
+    "path-browserify": "^1.0.1",
     "sass-loader": "^8.0.2",
     "source-map-support": "^0.5.19",
     "style-loader": "^0.23.1",
@@ -104,10 +79,13 @@
     "typescript": "^3.7.0",
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "node-starbound-assets": "^0.1.0"
+    "node-starbound-assets": "^0.1.0",
+    "source-map-support": "^0.5.19"
   }
 }

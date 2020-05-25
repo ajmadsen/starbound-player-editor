@@ -14,6 +14,10 @@ import {
 } from 'electron';
 import path from 'path';
 
+if (module.hot) {
+  module.hot.accept();
+}
+
 const userHome = process.cwd() || process.env.HOME || process.env.USERPROFILE;
 
 let communicator: Communicator | null = null;

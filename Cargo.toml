@@ -6,7 +6,11 @@ exclude = [
 ]
 
 [patch.crates-io]
-neon-runtime = { git = "https://github.com/neon-bindings/neon" }
-neon-sys = { git = "https://github.com/neon-bindings/neon" }
-neon = { git = "https://github.com/neon-bindings/neon" }
-neon-build = { git = "https://github.com/neon-bindings/neon" }
+# neon-runtime = { git = "https://github.com/ajmadsen/neon" }
+# neon-sys = { git = "https://github.com/ajmadsen/neon" }
+# neon = { git = "https://github.com/ajmadsen/neon" }
+# neon-build = { git = "https://github.com/ajmadsen/neon" }
+neon-runtime = { path = "../../build/neon/crates/neon-runtime" }
+neon-sys = { path = "../../build/neon/crates/neon-sys" }
+neon = { path = "../../build/neon" }
+neon-build = { path = "../../build/neon/crates/neon-build" }
