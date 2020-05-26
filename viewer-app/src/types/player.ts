@@ -1,3 +1,16 @@
+export type FrameData = {
+  frameGrid?: {
+    size: [number, number];
+    dimensions: [number, number];
+
+    names: (string | null)[][];
+  };
+  aliases?: { [newName: string]: string };
+  frameList?: {
+    [name: string]: [number, number, number, number];
+  };
+};
+
 export interface Player {
   aiState: AIState;
   blueprints: Blueprints;
@@ -5,7 +18,7 @@ export interface Player {
   companions: PlayerCompanions;
   deployment: Deployment;
   description: string;
-  genericProperties: GenericProperties;
+  genericProperties: any;
   genericScriptStorage: GenericScriptStorage;
   identity: Identity;
   inventory: Inventory;
@@ -18,7 +31,7 @@ export interface Player {
   team: Team;
   techController: TechController;
   techs: Techs;
-  universeMap: UniverseMap;
+  universeMap: Record<string, Universe>;
   uuid: string;
 }
 
@@ -35,10 +48,8 @@ export interface Blueprints {
 export interface KnownBlueprint {
   count: number;
   name: string;
-  parameters: GenericProperties;
+  parameters: any;
 }
-
-export interface GenericProperties {}
 
 export interface Codexes {
   protectorate1: boolean;
@@ -58,22 +69,22 @@ export interface CompanionsCompanions {
 }
 
 export interface CompanionsScriptStorage {
-  activePods: GenericProperties;
-  pods: GenericProperties;
+  activePods: any;
+  pods: any;
   recruits: Recruits;
 }
 
 export interface Recruits {
-  beenOnShip: GenericProperties;
+  beenOnShip: any;
 }
 
 export interface Deployment {
-  scriptStorage: GenericProperties;
+  scriptStorage: any;
 }
 
 export interface GenericScriptStorage {
-  bounty: GenericProperties;
-  stealing: GenericProperties;
+  bounty: any;
+  stealing: any;
 }
 
 export interface Identity {
@@ -157,7 +168,7 @@ export interface ItemBags {
 
 export interface Log {
   cinematics: string[];
-  collections: GenericProperties;
+  collections: any;
   deathCount: number;
   introComplete: boolean;
   playTime: number;
@@ -231,7 +242,7 @@ export interface Quest {
 }
 
 export interface QuestContent {
-  parameters: GenericProperties;
+  parameters: any;
   questId: string;
   seed: number;
   templateId: string;
@@ -364,10 +375,8 @@ export interface TechController {
 export interface Techs {
   availableTechs: any[];
   enabledTechs: any[];
-  equippedTechs: GenericProperties;
+  equippedTechs: any;
 }
-
-export interface UniverseMap extends Record<string, Universe> {}
 
 export interface Universe {
   systems: Array<Array<number[] | SystemClass>>;
@@ -376,7 +385,7 @@ export interface Universe {
 
 export interface SystemClass {
   bookmarks: any[];
-  mappedObjects: GenericProperties;
+  mappedObjects: any;
   mappedPlanets: MappedPlanet[];
 }
 

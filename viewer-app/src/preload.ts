@@ -8,10 +8,8 @@ contextBridge.exposeInMainWorld('starboundService', {
 });
 
 process.on('loaded', () => {
-  console.log('process loaded');
   ipcRenderer.on('message', (event, ...args) => {
-    console.log('got message', event, args);
     const [name, payload] = args;
-    window.postMessage(name, '*', payload);
+    window.postMessage(name, SAFE_ORIGIN, payload);
   });
 });

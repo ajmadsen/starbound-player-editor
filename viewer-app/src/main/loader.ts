@@ -20,6 +20,31 @@ if (module.hot) {
 
 const userHome = process.cwd() || process.env.HOME || process.env.USERPROFILE;
 
+class Communicator {
+  constructor(
+    protected player: Player,
+    protected resources: PackedAssets,
+    protected browserWindow: BrowserWindow
+  ) {
+    this.getResource = this.getResource.bind(this);
+
+    ipcMain.handle('get-resource', this.getResource);
+  }
+
+  protected async getResource(event: IpcMainInvokeEvent, ...args: any[]) {
+    const [path] = args;
+    const file = await this.resources.getFileAsync(path);
+    return {
+      path,
+      contents: file,
+    };
+  }
+
+  cancel() {
+    ipcMain.removeHandler('get-resource');
+  }
+}
+
 let communicator: Communicator | null = null;
 
 export async function openPlayer(
@@ -51,31 +76,4 @@ export async function openPlayer(
     name: 'player-selected',
     payload: { player },
   });
-}
-
-ipcMain.on('asdf', () => console.log('got asdf'));
-
-class Communicator {
-  constructor(
-    protected player: Player,
-    protected resources: PackedAssets,
-    protected browserWindow: BrowserWindow
-  ) {
-    this.getResource = this.getResource.bind(this);
-
-    ipcMain.handle('get-resource', this.getResource);
-  }
-
-  protected async getResource(event: IpcMainInvokeEvent, ...args: any[]) {
-    const { path } = args[0];
-    const file = await this.resources.getFileAsync(path);
-    return {
-      path,
-      contents: file,
-    };
-  }
-
-  cancel() {
-    ipcMain.removeHandler('get-resource');
-  }
 }

@@ -16,7 +16,9 @@
     },
     "downlevelIteration": true,
     "lib": ["ESNext", "DOM", "ScriptHost"],
-    "strict": true
+    "strict": true,
+    "noImplicitReturns": false
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "typeAcquisition": { "enable": true }
 }

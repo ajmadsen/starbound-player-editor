@@ -10,8 +10,8 @@ use std::collections::BTreeSet;
 use std::fs;
 use std::path::PathBuf;
 
-fn extract_assets() {
-    let assets = parse_packed("./resources/packed.pak").expect("could not open assets file");
+fn extract_assets(assets_path: &str) {
+    let assets = parse_packed(assets_path).expect("could not open assets file");
     println!("meta: {:?}", assets.metadata());
 
     let base = PathBuf::from("./out");
@@ -49,6 +49,7 @@ fn main() {
         .arg(
             Arg::with_name("assets")
                 .short("a")
+                .takes_value(true)
                 .help("extract assets mode"),
         )
         .arg(
@@ -65,7 +66,7 @@ fn main() {
         .get_matches();
 
     if matches.is_present("assets") {
-        extract_assets();
+        extract_assets(matches.value_of("assets").unwrap());
     } else {
         extract_player(matches.value_of("player").unwrap())
     }

@@ -33,6 +33,8 @@
     "files": [
       "!dist${/*}",
       "**/node_modules/*",
+      "!**/native/**",
+      "**/native/index.node",
       {
         "from": "dist",
         "filter": [
@@ -46,10 +48,12 @@
       "main": "main/main.js"
     },
     "asarUnpack": [
-      "dist/preload.js"
+      "dist/preload.js",
+      "**/native/**"
     ]
   },
   "devDependencies": {
+    "@types/json5": "^0.0.30",
     "@types/lodash": "^4.14.152",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",

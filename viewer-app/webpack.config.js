@@ -26,6 +26,11 @@ function getDefault(env, argv) {
   const isProd = env && env.production;
   const mode = isProd ? 'production' : 'development';
 
+  const safeOrigin = isProd ? 'file://' : `http://localhost:${port}`;
+  const replacePlugin = new webpack.DefinePlugin({
+    SAFE_ORIGIN: JSON.stringify(safeOrigin),
+  });
+
   /** @type {import('webpack').Configuration} */
   const common = {
     context,
@@ -46,7 +51,6 @@ function getDefault(env, argv) {
             {
               loader: 'ts-loader',
               options: {
-                onlyCompileBundledFiles: true,
                 transpileOnly: true,
               },
             },
@@ -58,7 +62,7 @@ function getDefault(env, argv) {
       __dirname: false,
       __filename: false,
     },
-    plugins: [new ForkTsCheckerWebpackPlugin()],
+    plugins: [new ForkTsCheckerWebpackPlugin(), replacePlugin],
     devServer: { port, writeToDisk: true },
   };
 
