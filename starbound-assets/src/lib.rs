@@ -1,14 +1,13 @@
 use std::error::Error;
 use std::fs::File;
 
-mod bson;
+pub mod bson;
 #[allow(dead_code)]
 mod json;
 mod packed;
 mod vlq;
 
-pub use bson::Value;
-pub use packed::{PackedAssets, Player};
+pub use packed::{save_versioned_json, PackedAssets, Player};
 
 pub fn parse_packed(path: &str) -> Result<PackedAssets, Box<dyn Error>> {
     let f = File::open(path)?;

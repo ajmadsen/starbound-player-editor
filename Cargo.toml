@@ -1,9 +1,6 @@
 [workspace]
 members = ["node-starbound-assets/native", "starbound-assets"]
-exclude = [
-  "node_modules/node-starbound-assets/native",
-  "node_modules/starbound-assets"
-]
+exclude = [".yarn", "node_modules"]
 
 [patch.crates-io]
 # neon-runtime = { git = "https://github.com/ajmadsen/neon" }

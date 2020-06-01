@@ -22,5 +22,8 @@
   },
   "resolutions": {
     "app-builder-bin": "portal:../app-builder/app-builder-bin"
+  },
+  "dependencies": {
+    "vuex": "^3.4.0"
   }
 }

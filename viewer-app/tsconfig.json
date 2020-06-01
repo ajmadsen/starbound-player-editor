@@ -9,15 +9,16 @@
     "baseUrl": ".",
     "outDir": "dist",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "paths": {
       "*": ["node_modules/*"]
     },
     "downlevelIteration": true,
-    "lib": ["ESNext", "DOM", "ScriptHost"],
+    "lib": ["ESNext", "DOM", "ScriptHost", "DOM.Iterable"],
     "strict": true,
-    "noImplicitReturns": false
+    "noImplicitThis": true,
+    "noImplicitReturns": true
   },
   "include": ["src/**/*"],
+  "files": ["src/vue-shims.d.ts"],
   "typeAcquisition": { "enable": true }
 }

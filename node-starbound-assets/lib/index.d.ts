@@ -20,8 +20,10 @@ declare module 'node-starbound-assets' {
     content: T;
   }
 
-  export function parsePlayer(path: string, cb: Callback<Player>);
+  export function parsePlayer(path: string, cb: Callback<Player>): void;
   export function parsePlayerAsync(path: string): Promise<Player>;
-  export function parseAssets(path: string, cb: Callback<PackedAssets>);
+  export function savePlayer(path: string, cb: Callback<ArrayBuffer>): void;
+  export function savePlayerAsync(path: string): Promise<ArrayBuffer>;
+  export function parseAssets(path: string, cb: Callback<PackedAssets>): void;
   export function parseAssetsAsync(path: string): Promise<PackedAssets>;
 }

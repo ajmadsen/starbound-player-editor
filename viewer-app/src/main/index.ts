@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu } from 'electron';
+import { app, BrowserWindow, Menu, session } from 'electron';
 import { openPlayer } from './loader';
 import path from 'path';
 import { format as formatUrl } from 'url';

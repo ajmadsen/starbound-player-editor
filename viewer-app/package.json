@@ -6,11 +6,15 @@
   "description": "My Electron application description",
   "main": "src/index.ts",
   "scripts": {
-    "start": "electron-webpack dev",
+    "start-electron": "electron-webpack dev",
+    "start-wds": "webpack-dev-server",
+    "prestart": "rebuild-deps",
+    "start": "concurrently -k -n ELECTRON,WDS \"npm:start-electron\" \"npm:start-wds\"",
     "rebuild-deps": "electron-builder install-app-deps",
     "lint": "eslint --ext .ts .",
     "build-preload": "webpack --config webpack.preload.js",
-    "stuff": "cmd /c \"set\""
+    "stuff": "cmd /c \"dir %BERRY_BIN_FOLDER%\"",
+    "get-deps": "get-deps"
   },
   "keywords": [],
   "author": {
@@ -57,14 +61,16 @@
     "@types/lodash": "^4.14.152",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
+    "concurrently": "^5.2.0",
     "css-loader": "^3.0.0",
     "ejs-loader": "^0.3.6",
     "electron": "9.0.0",
     "electron-builder": "^22.6.1",
     "electron-webpack": "^2.8.2",
     "electron-webpack-ts": "^4.0.1",
-    "eslint": "^6.8.0",
+    "eslint": "^7.1.0",
     "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-vue": "next",
     "extract-css-chunks-webpack-plugin": "^4.7.5",
     "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "^4.1.5",
@@ -84,15 +90,22 @@
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.0",
     "url-loader": "^4.1.0",
-    "webpack": "next",
+    "vue-loader": "^15.9.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "4.*",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@vue/composition-api": "^0.5.0",
     "electron-squirrel-startup": "^1.0.0",
     "node-starbound-assets": "^0.1.0",
-    "source-map-support": "^0.5.19"
+    "source-map-support": "^0.5.19",
+    "vue": "^2.6.11"
+  },
+  "bin": {
+    "get-deps": "./bin/get-deps.js"
   }
 }

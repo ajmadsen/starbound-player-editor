@@ -1,3 +1,5 @@
+pub mod serializer;
+
 use nom::{
     branch::alt,
     bytes::complete::{tag, take},
@@ -10,14 +12,17 @@ use nom::{
 };
 
 use serde::{
+    de::Visitor,
     ser::{SerializeMap, SerializeSeq},
-    Serialize,
+    Deserialize, Serialize,
 };
 
 use std::collections::BTreeMap;
 
+use num::cast::NumCast;
+
 use crate::json::utf8;
-use crate::vlq::{vlqi64, vlqu64};
+use crate::vlq::{read_vlqi64, read_vlqu64};
 
 pub type Map = BTreeMap<String, Value>;
 
@@ -64,11 +69,14 @@ fn parse_boolean<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], 
 }
 
 fn parse_integer<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], Value, E> {
-    context("vlq integer", map(vlqi64, |i| Value::Integer(i)))(i)
+    context("vlq integer", map(read_vlqi64, |i| Value::Integer(i)))(i)
 }
 
 fn string<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], String, E> {
-    map_parser(length_data(vlqu64), map(utf8, |s| s.to_owned()))(i)
+    map_parser(
+        length_data(map(read_vlqu64, |v| v as usize)),
+        map(utf8, |s| s.to_owned()),
+    )(i)
 }
 
 fn parse_string<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], Value, E> {
@@ -76,7 +84,7 @@ fn parse_string<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], V
 }
 
 fn parse_array<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], Value, E> {
-    let (i, n) = vlqu64(i)?;
+    let (i, n) = read_vlqu64(i)?;
     context(
         "array",
         map(many_m_n(n as usize, n as usize, parse_bson), |vec| {
@@ -86,7 +94,7 @@ fn parse_array<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], Va
 }
 
 pub fn parse_object<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], Value, E> {
-    let (i, n) = vlqu64(i)?;
+    let (i, n) = read_vlqu64(i)?;
     let string_val = map(parse_string, |s| match s {
         Value::String(s) => s,
         _ => unreachable!(),
@@ -134,5 +142,100 @@ impl Serialize for Value {
                 map.end()
             }
         }
+    }
+}
+
+impl<'de> Deserialize<'de> for Value {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        deserializer.deserialize_any(ValueVisitor)
+    }
+}
+
+struct ValueVisitor;
+
+impl<'de> Visitor<'de> for ValueVisitor {
+    type Value = Value;
+
+    fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
+        formatter.write_str("a bson value")
+    }
+
+    fn visit_bool<E>(self, v: bool) -> Result<Self::Value, E>
+    where
+        E: serde::de::Error,
+    {
+        Ok(Value::Boolean(v))
+    }
+
+    fn visit_i64<E>(self, v: i64) -> Result<Self::Value, E>
+    where
+        E: serde::de::Error,
+    {
+        Ok(Value::Integer(v))
+    }
+
+    fn visit_u64<E>(self, v: u64) -> Result<Self::Value, E>
+    where
+        E: serde::de::Error,
+    {
+        let v: i64 = <i64 as NumCast>::from(v).ok_or_else(|| {
+            serde::de::Error::custom(format!("value does not fit in an i64: {}", v))
+        })?;
+        Ok(Value::Integer(v))
+    }
+
+    fn visit_f64<E>(self, v: f64) -> Result<Self::Value, E>
+    where
+        E: serde::de::Error,
+    {
+        Ok(Value::Float(v))
+    }
+
+    fn visit_str<E>(self, v: &str) -> Result<Self::Value, E>
+    where
+        E: serde::de::Error,
+    {
+        Ok(Value::String(v.to_string()))
+    }
+
+    fn visit_none<E>(self) -> Result<Self::Value, E>
+    where
+        E: serde::de::Error,
+    {
+        Ok(Value::Empty)
+    }
+
+    fn visit_unit<E>(self) -> Result<Self::Value, E>
+    where
+        E: serde::de::Error,
+    {
+        Ok(Value::Empty)
+    }
+
+    fn visit_seq<A>(self, seq: A) -> Result<Self::Value, A::Error>
+    where
+        A: serde::de::SeqAccess<'de>,
+    {
+        let mut vals = vec![];
+        let mut seq = seq;
+        while let Some(val) = seq.next_element()? {
+            vals.push(val);
+        }
+        Ok(Value::Array(vals))
+    }
+
+    fn visit_map<A>(self, map: A) -> Result<Self::Value, A::Error>
+    where
+        A: serde::de::MapAccess<'de>,
+    {
+        let mut obj = Map::new();
+        let mut map = map;
+        while let Some((k, v)) = map.next_entry()? {
+            obj.insert(k, v);
+        }
+        Ok(Value::Object(obj))
     }
 }

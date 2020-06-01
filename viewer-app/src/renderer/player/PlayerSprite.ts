@@ -181,4 +181,10 @@ export class PlayerSprite {
         new Set<number>()
       );
   }
+
+  allPalettes(): Record<BodyPart, Palette> {
+    return Object.fromEntries(
+      Object.keys(this.partMap).map((k) => [k, this.partPalette(k as BodyPart)])
+    ) as Record<BodyPart, Palette>;
+  }
 }

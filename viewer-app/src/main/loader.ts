@@ -18,40 +18,47 @@ if (module.hot) {
   module.hot.accept();
 }
 
+interface ResourceResponse {
+  path: string;
+  contents: ArrayBuffer;
+}
+
 const userHome = process.cwd() || process.env.HOME || process.env.USERPROFILE;
 
 class Communicator {
-  constructor(
-    protected player: Player,
-    protected resources: PackedAssets,
-    protected browserWindow: BrowserWindow
-  ) {
-    this.getResource = this.getResource.bind(this);
+  protected resources?: PackedAssets;
+  protected player?: Player;
 
-    ipcMain.handle('get-resource', this.getResource);
+  constructor() {
+    ipcMain.handle('get-resource', this.getResource.bind(this));
   }
 
-  protected async getResource(event: IpcMainInvokeEvent, ...args: any[]) {
-    const [path] = args;
+  loadPlayer(player: Player, resources: PackedAssets): void {
+    this.resources = resources;
+    this.player = player;
+  }
+
+  protected async getResource(
+    _event: IpcMainInvokeEvent,
+    ...[path]: string[]
+  ): Promise<ResourceResponse> {
+    if (!this.resources)
+      throw new Error('resources not available until a player is loaded');
     const file = await this.resources.getFileAsync(path);
     return {
       path,
       contents: file,
     };
   }
-
-  cancel() {
-    ipcMain.removeHandler('get-resource');
-  }
 }
 
-let communicator: Communicator | null = null;
+const communicator = new Communicator();
 
 export async function openPlayer(
   _menuItem: MenuItem,
   browserWindow: BrowserWindow,
-  event: KeyboardEvent
-) {
+  _event: KeyboardEvent
+): Promise<void> {
   const options = await dialog.showOpenDialog({
     title: 'Select Player',
     defaultPath: userHome,
@@ -65,11 +72,7 @@ export async function openPlayer(
 
   const packedPath = path.resolve(playerPath, '../packed.pak');
   const resources = await parseAssetsAsync(packedPath);
-
-  if (communicator) {
-    communicator.cancel();
-  }
-  communicator = new Communicator(player, resources, browserWindow);
+  communicator.loadPlayer(player, resources);
 
   console.log('sending event');
   browserWindow.webContents.send('message', {

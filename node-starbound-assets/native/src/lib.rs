@@ -1,5 +1,8 @@
 use neon::prelude::*;
-use starbound_assets::{parse_packed, parse_player, PackedAssets as OrigPackedAssets, Player};
+use starbound_assets::{
+    parse_packed, parse_player, save_versioned_json, PackedAssets as OrigPackedAssets, Player,
+};
+use std::cell::RefCell;
 use std::sync::{Arc, Mutex};
 
 #[derive(Clone)]
@@ -92,6 +95,32 @@ impl Task for PlayerLoader {
     }
 }
 
+struct PlayerSaver(RefCell<Player>);
+
+impl Task for PlayerSaver {
+    type Output = Vec<u8>;
+    type Error = ();
+    type JsEvent = JsArrayBuffer;
+
+    fn perform(&self) -> Result<Self::Output, Self::Error> {
+        let player_bytes = save_versioned_json(&mut self.0.borrow_mut().contents);
+        Ok(player_bytes)
+    }
+
+    fn complete<'a>(
+        self,
+        mut cx: TaskContext<'a>,
+        result: Result<Self::Output, Self::Error>,
+    ) -> JsResult<Self::JsEvent> {
+        let bytes = result.unwrap();
+        let mut buf = cx.array_buffer(bytes.len() as u32)?;
+        cx.borrow_mut(&mut buf, |buf| {
+            buf.as_mut_slice().copy_from_slice(&bytes[..])
+        });
+        Ok(buf)
+    }
+}
+
 declare_types! {
     pub class JsPackedAssets for PackedAssets {
         init(_) {
@@ -160,8 +189,17 @@ fn js_parse_assets(mut cx: FunctionContext) -> JsResult<JsUndefined> {
     Ok(cx.undefined())
 }
 
+fn js_save_player(mut cx: FunctionContext) -> JsResult<JsUndefined> {
+    let parg = cx.argument(0)?;
+    let player: Player = neon_serde::from_value(&mut cx, parg)?;
+    let cb = cx.argument(1)?;
+    PlayerSaver(player.into()).schedule(cb);
+    Ok(cx.undefined())
+}
+
 register_module!(mut m, {
     m.export_function("parsePlayer", js_parse_player)?;
+    m.export_function("savePlayer", js_save_player)?;
     m.export_function("parseAssets", js_parse_assets)?;
     m.export_class::<JsPackedAssets>("PackedAssets")?;
     Ok(())

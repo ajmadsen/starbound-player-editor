@@ -1,6 +1,8 @@
-use crate::bson::{parse_bson, parse_maybe_u32, parse_object, Map, Value};
+use crate::bson::{
+    parse_bson, parse_maybe_u32, parse_object, serializer as bson_serializer, Map, Value,
+};
 use crate::json::utf8;
-use crate::vlq::vlqu64;
+use crate::vlq::read_vlqu64;
 use memmap::Mmap;
 use nom::{
     bytes::complete::tag,
@@ -11,7 +13,7 @@ use nom::{
     sequence::{pair, tuple},
     IResult,
 };
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 use std::error::Error;
 use std::fs::File;
@@ -36,12 +38,17 @@ fn parse_metadata<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8],
 }
 
 fn string<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], String, E> {
-    context("string", map(length_value(vlqu64, utf8), |s| s.to_owned()))(i)
+    context(
+        "string",
+        map(length_value(map(read_vlqu64, |v| v as usize), utf8), |s| {
+            s.to_owned()
+        }),
+    )(i)
 }
 
 fn parse_directory<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], Directory, E> {
     let entry = context("entry", pair(string, pair(be_i64, be_i64)));
-    let (i, n) = vlqu64(i)?;
+    let (i, n) = read_vlqu64(i)?;
     context(
         "directory",
         map(many_m_n(n as usize, n as usize, entry), |tuples| {
@@ -151,7 +158,7 @@ impl PackedAssets {
     }
 }
 
-#[derive(Clone, Debug, PartialOrd, PartialEq, Serialize)]
+#[derive(Clone, Debug, PartialOrd, PartialEq, Serialize, Deserialize)]
 pub struct VersionedJson {
     pub identifier: String,
     pub version: u32,
@@ -174,7 +181,7 @@ fn parse_versioned_json<'a, E: ParseError<&'a [u8]>>(
     ))
 }
 
-#[derive(Debug, Clone, PartialOrd, PartialEq, Serialize)]
+#[derive(Debug, Clone, PartialOrd, PartialEq, Serialize, Deserialize)]
 pub struct Player {
     pub contents: VersionedJson,
 }
@@ -188,4 +195,12 @@ impl Player {
 
         Ok(Player { contents: player })
     }
+}
+
+pub fn save_versioned_json(json: &mut VersionedJson) -> Vec<u8> {
+    json.version += 1;
+    let mut out = Vec::new();
+    out.copy_from_slice("SBVJ01".as_bytes());
+    bson_serializer::to_writer(&mut out, json).unwrap();
+    out
 }

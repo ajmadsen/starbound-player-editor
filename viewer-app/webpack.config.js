@@ -5,6 +5,7 @@ const merge = require('webpack-merge');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const port = 9000;
 const context = _resolve(__dirname);
@@ -40,7 +41,7 @@ function getDefault(env, argv) {
     },
     devtool: !isProd ? 'inline-source-map' : undefined,
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.vue'],
     },
     module: {
       rules: [
@@ -103,8 +104,22 @@ module.exports = [
       module: {
         rules: [
           {
+            test: /\.tsx?$/,
+            exclude: [/node_modules/],
+            use: [
+              {
+                loader: 'ts-loader',
+                options: {
+                  transpileOnly: true,
+                  appendTsSuffixTo: [/\.vue$/],
+                },
+              },
+            ],
+          },
+          {
             test: /\.(sa|sc|c)ss$/,
             use: [
+              { loader: 'vue-style-loader' },
               {
                 loader: ExtractCssChunks.loader,
                 options: { esModules: true, hmr: !(env && env.production) },
@@ -112,6 +127,10 @@ module.exports = [
               { loader: 'css-loader' },
               { loader: 'sass-loader' },
             ],
+          },
+          {
+            test: /\.vue$/,
+            use: [{ loader: 'vue-loader' }],
           },
         ],
       },
@@ -124,6 +143,7 @@ module.exports = [
           template: './src/renderer/index.ejs',
           filename: 'renderer/index.html',
         }),
+        new VueLoaderPlugin(),
         ...(env && env.production
           ? []
           : [new webpack.HotModuleReplacementPlugin()]),

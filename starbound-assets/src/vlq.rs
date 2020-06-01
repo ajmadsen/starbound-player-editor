@@ -3,6 +3,7 @@ use nom::{
     error::{context, ParseError},
     IResult, InputTakeAtPosition,
 };
+use std::cell::Cell;
 
 const CONTINUE: u8 = 1u8 << 7;
 const MASK: u8 = CONTINUE - 1;
@@ -13,7 +14,7 @@ where
     F: Fn(I::Item) -> bool + 'static,
 {
     let make_latched = move |f: F| {
-        let latch = std::cell::Cell::new(true);
+        let latch = Cell::new(true);
         move |item: I::Item| {
             let prev = latch.replace(f(item));
             !prev
@@ -24,7 +25,7 @@ where
     move |i: I| i.split_at_position_complete(|c| f(c))
 }
 
-pub fn vlqu64<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], u64, E> {
+pub fn read_vlqu64<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], u64, E> {
     let bytes = take_more(|b: u8| b & CONTINUE > 0);
     let fold = map(bytes, |b: &[u8]| {
         b.into_iter()
@@ -33,8 +34,8 @@ pub fn vlqu64<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], u64
     context("vlqu", fold)(i)
 }
 
-pub fn vlqi64<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], i64, E> {
-    let (i, int) = vlqu64(i)?;
+pub fn read_vlqi64<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], i64, E> {
+    let (i, int) = read_vlqu64(i)?;
     Ok((
         i,
         match int & 1 {
@@ -43,4 +44,22 @@ pub fn vlqi64<'a, E: ParseError<&'a [u8]>>(i: &'a [u8]) -> IResult<&'a [u8], i64
             _ => unreachable!(),
         },
     ))
+}
+
+pub fn write_vlqi64<W: std::io::Write>(w: &mut W, n: i64) -> std::io::Result<()> {
+    write_vlqu64(w, ((n as u64) << 1) ^ ((n as u64) >> 63))
+}
+
+pub fn write_vlqu64<W: std::io::Write>(w: &mut W, mut n: u64) -> std::io::Result<()> {
+    let mut buf: [u8; 8] = [0 as u8; 8];
+    let mut i = buf.len();
+    while n > 0 {
+        i -= 1;
+        buf[i] = (n & 0x7f) as u8;
+        n = n >> 7;
+        if i + 1 < buf.len() {
+            buf[i] ^= 1 << 7;
+        }
+    }
+    w.write_all(&buf[std::cmp::min(i, buf.len() - 1)..])
 }
