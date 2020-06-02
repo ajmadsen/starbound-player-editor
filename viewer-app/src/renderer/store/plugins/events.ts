@@ -5,12 +5,13 @@ const createEventPlugin = (safeOrigin: string): typeof eventPlugin => {
     window.addEventListener('message', (ev) => {
       if (ev.origin !== safeOrigin) return;
 
-      console.log('got message', ev);
       const { name, payload } = ev.data;
       switch (name) {
         case 'player-selected':
           store.commit('setPlayer', payload);
           break;
+        default:
+          if (name) console.log('unknown event', name);
       }
     });
   };

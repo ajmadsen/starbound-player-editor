@@ -56,8 +56,7 @@ const communicator = new Communicator();
 
 export async function openPlayer(
   _menuItem: MenuItem,
-  browserWindow: BrowserWindow,
-  _event: KeyboardEvent
+  browserWindow: BrowserWindow
 ): Promise<void> {
   const options = await dialog.showOpenDialog({
     title: 'Select Player',
@@ -78,5 +77,15 @@ export async function openPlayer(
   browserWindow.webContents.send('message', {
     name: 'player-selected',
     payload: { player },
+  });
+}
+
+export function requestSave(
+  _menuItem: MenuItem,
+  browserWindow: BrowserWindow
+): void {
+  browserWindow.webContents.send('message', {
+    name: 'request-save',
+    payload: {},
   });
 }

@@ -10533,17 +10533,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"style-loader@npm:^0.23.1":
-  version: 0.23.1
-  resolution: "style-loader@npm:0.23.1"
-  dependencies:
-    loader-utils: ^1.1.0
-    schema-utils: ^1.0.0
-  checksum: 9d8f17677bcc9a6b0dc3f23909dcb3c9976e3e37d53768ff5ffe915a62e50c6ed347b79d4f5613670289547bbfa0e1be968ac89ecffb600553e1931c761b1167
-  languageName: node
-  linkType: hard
-
-"style-loader@npm:^1.1.3":
+"style-loader@npm:^1.1.3, style-loader@npm:^1.2.1":
   version: 1.2.1
   resolution: "style-loader@npm:1.2.1"
   dependencies:
@@ -11484,7 +11474,7 @@ fsevents@~2.1.2:
     path-browserify: ^1.0.1
     sass-loader: ^8.0.2
     source-map-support: ^0.5.19
-    style-loader: ^0.23.1
+    style-loader: ^1.2.1
     ts-loader: ^6.2.1
     typescript: ^3.7.0
     url-loader: ^4.1.0

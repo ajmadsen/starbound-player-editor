@@ -1,5 +1,5 @@
-import { app, BrowserWindow, Menu, session } from 'electron';
-import { openPlayer } from './loader';
+import { app, BrowserWindow, Menu } from 'electron';
+import { openPlayer, requestSave } from './loader';
 import path from 'path';
 import { format as formatUrl } from 'url';
 
@@ -29,6 +29,7 @@ Menu.setApplicationMenu(
       label: 'File',
       submenu: [
         { label: 'Open', click: openPlayer },
+        { label: 'Save', click: requestSave },
         { type: 'separator' },
         { label: 'Exit', role: 'quit' },
       ],

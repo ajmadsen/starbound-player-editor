@@ -3,33 +3,21 @@
     type="color"
     class="colorpick"
     :value="formattedColor"
-    @input="onInput($event.target.value)"
+    @input="$emit('input', $event.target.value)"
   />
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from '@vue/composition-api';
+import { defineComponent, computed } from '@vue/composition-api';
 import { fmtColor } from '../utils';
-import { debounce } from 'lodash';
 
 export default defineComponent({
   props: {
-    color: [String, Number],
+    color: { type: [String, Number], required: true },
   },
-  setup(props, { emit }) {
+  setup(props) {
     const formattedColor = computed(() => `${fmtColor(props.color)}`);
-    const lastColor = ref(formattedColor.value);
-
-    const onInput = debounce((color: string): void => {
-      emit('remap', {
-        original: formattedColor,
-        old: lastColor.value,
-        new: color,
-      });
-      lastColor.value = color;
-    }, 5);
-
-    return { formattedColor, onInput };
+    return { formattedColor };
   },
 });
 </script>
@@ -46,7 +34,6 @@ export default defineComponent({
   background-color: transparent;
   width: 25px;
   height: 25px;
-  box-shadow: 0px 0px $shadow #333;
   border-radius: $br;
 
   &::-webkit-color-swatch-wrapper {
@@ -56,6 +43,7 @@ export default defineComponent({
   &::-webkit-color-swatch {
     border: 0;
     border-radius: $br;
+    box-shadow: 0px 0px $shadow #333;
   }
 
   &:focus::-webkit-color-swatch {

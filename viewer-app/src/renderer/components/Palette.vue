@@ -4,7 +4,7 @@
       v-for="[idx, color] in colors.entries()"
       :key="idx"
       :color="color"
-      @remap="$emit('remap', $event)"
+      @input="$emit('remap', { color, newColor: $event })"
     />
   </div>
 </template>

@@ -2,6 +2,20 @@
   <div>
     <section class="player">
       <canvas width="150" height="150" ref="canvas"></canvas>
+      <div class="player-info" v-if="data.sprite">
+        <div>
+          <strong>Name</strong>
+          <span>{{ player.identity.name }}</span>
+        </div>
+        <div>
+          <strong>Species</strong>
+          <span>{{ titleCase(player.identity.species) }}</span>
+        </div>
+        <div>
+          <strong>Gender</strong>
+          <span>{{ titleCase(player.identity.gender) }}</span>
+        </div>
+      </div>
     </section>
     <section>
       <div v-for="[part, palette] in data.palettes" :key="part">
@@ -23,27 +37,22 @@ import {
   watch,
   onMounted,
 } from '@vue/composition-api';
-import { PropType } from 'vue';
 import Palette from './Palette.vue';
 import { titleCase, fmtColor } from '../utils';
 import { debounce } from 'lodash';
 
-type ComponentProps = {
-  player: Player;
-};
-
 export default defineComponent({
   props: {
-    player: {} as PropType<Player>,
+    player: Object as () => Player,
   },
-  setup(props: ComponentProps) {
+  setup(props) {
     const canvas = ref<HTMLCanvasElement>(null);
     const data = reactive({
       sprite: null as PlayerSprite | null,
       palettes: [] as [BodyPart, string[]][],
     });
 
-    let ctx: CanvasRenderingContext2D;
+    let ctx: CanvasRenderingContext2D | null | undefined;
     onMounted(() => {
       ctx = canvas.value?.getContext('2d');
       if (!ctx) throw new Error('unable to get 2d rendering context');
@@ -53,29 +62,44 @@ export default defineComponent({
     });
 
     function draw(): void {
-      data.sprite.draw(ctx);
+      if (ctx) data.sprite?.draw(ctx);
     }
 
     function translate(part: BodyPart): string {
       return titleCase(
         {
           body: 'body',
-          hair: props.player.identity.hairGroup,
-          'facial hair': props.player.identity.facialHairGroup,
-          mask: props.player.identity.facialMaskGroup,
+          hair: props.player?.identity.hairGroup || 'hair',
+          'facial hair':
+            props.player?.identity.facialHairGroup || 'facial hair',
+          mask: props.player?.identity.facialMaskGroup || 'mask',
         }[part]
       );
     }
 
-    const onRemap = (
-      part: BodyPart,
-      { old, new: new_ }: Record<'old' | 'new', string>
-    ): void => {
-      console.log(old, new_);
-      const directive = `?replace;${old.slice(1)}=${new_.slice(1)}`;
-      data.sprite.applyDirectives(part, directive);
-      draw();
-    };
+    const colorMap: Record<BodyPart, Record<string, string>> = {} as any;
+
+    const onRemap = debounce(
+      (
+        part: BodyPart,
+        { color, newColor }: Record<'color' | 'newColor', string>
+      ): void => {
+        if (!(part in colorMap)) {
+          colorMap[part] = {};
+        }
+        const partMap = colorMap[part];
+        if (!(color in partMap)) {
+          partMap[color] = color;
+        }
+        const prevColor = partMap[color];
+        partMap[color] = newColor;
+
+        const directive = `?replace;${prevColor.slice(1)}=${newColor.slice(1)}`;
+        data.sprite?.applyDirectives(part, directive);
+        draw();
+      },
+      10
+    );
 
     watchEffect(() => {
       if (!props.player) return;
@@ -90,7 +114,9 @@ export default defineComponent({
 
     watch(
       () => data.sprite,
-      () => draw()
+      () => {
+        if (data.sprite) draw();
+      }
     );
 
     return {
@@ -98,70 +124,27 @@ export default defineComponent({
       data,
       translate,
       onRemap,
+      titleCase,
     };
   },
   components: { Palette },
 });
-/*
-const display = async (identity: Identity): Promise<void> =>
-  PlayerSprite.load(identity).then(async (player) => {
-    const canvas = el('canvas');
-    canvas.width = 150;
-    canvas.height = 150;
-    a(canvas);
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    ctx.scale(3, 3);
-    ctx.imageSmoothingEnabled = false;
-
-    const redraw = (): void => {
-      player.draw(ctx);
-    };
-    redraw();
-
-    const onInput = (
-      initial: number | string,
-      target: BodyPart
-    ): ((arg: string) => void) => {
-      let last = fmtColor(initial);
-
-      return debounce((color: string) => {
-        const to = color.substr(1);
-        player.applyDirectives(target, `?replace;${last}=${to}`);
-        last = to;
-        redraw();
-      }, 5);
-    };
-
-    const picker = (title: string, target: BodyPart): HTMLDivElement => {
-      const container = el('div');
-      container.className = 'picker';
-
-      const t = el('h4');
-      t.innerText = title;
-      container.appendChild(t);
-
-      const colorSet = player.partPalette(target);
-
-      colorSet.forEach((c) =>
-        container.appendChild(pixContainer(c, onInput(c, target)))
-      );
-
-      return container;
-    };
-
-    a(picker('Body', 'body'));
-    a(picker(titleCase(identity.hairGroup), 'hair'));
-    a(picker(titleCase(identity.facialHairGroup), 'facial hair'));
-    a(picker(titleCase(identity.facialMaskGroup), 'mask'));
-  });
-  */
 </script>
 
 <style scoped lang="scss">
 .player {
   display: flex;
+}
+
+.player-info {
+  margin: 2em 3em;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  & span {
+    margin-left: 1em;
+  }
 }
 </style>
