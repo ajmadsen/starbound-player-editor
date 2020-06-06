@@ -3,6 +3,7 @@ use crate::bson::{
 };
 use crate::json::utf8;
 use crate::vlq::read_vlqu64;
+use byteorder::{BigEndian, WriteBytesExt};
 use memmap::Mmap;
 use nom::{
     bytes::complete::tag,
@@ -17,6 +18,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 use std::error::Error;
 use std::fs::File;
+use std::sync::{Arc, Mutex};
 
 type Directory = BTreeMap<String, (i64, i64)>;
 pub type Metadata = Map;
@@ -197,10 +199,32 @@ impl Player {
     }
 }
 
-pub fn save_versioned_json(json: &mut VersionedJson) -> Vec<u8> {
+pub fn save_versioned_json(
+    json: &mut VersionedJson,
+) -> Result<Vec<u8>, Arc<Mutex<crate::bson::serializer::Error>>> {
     json.version += 1;
     let mut out = Vec::new();
-    out.copy_from_slice("SBVJ01".as_bytes());
-    bson_serializer::to_writer(&mut out, json).unwrap();
-    out
+    out.extend_from_slice("SBVJ01".as_bytes());
+    let mut buf = Vec::new();
+    bson_serializer::to_writer(&mut buf, &json.identifier).map_err(|e| Arc::new(Mutex::new(e)))?;
+    out.extend_from_slice(&buf[1..]);
+    out.push(b'\x01');
+    out.write_u32::<BigEndian>(json.version)
+        .map_err(|e| Arc::new(Mutex::new(crate::bson::serializer::Error(e.to_string()))))?;
+    bson_serializer::to_writer(&mut out, &json.content).map_err(|e| Arc::new(Mutex::new(e)))?;
+    Ok(out)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_save() {
+        let mut p = Player::new(
+            &std::fs::File::open("resources/c75356ebfb10a0111500b4985132688b.player").unwrap(),
+        )
+        .unwrap();
+        let bytes = save_versioned_json(&mut p.contents);
+    }
 }

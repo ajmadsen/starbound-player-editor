@@ -1,6 +1,7 @@
 import {
   parseAssetsAsync,
   parsePlayerAsync,
+  savePlayerAsync,
   Player,
   PackedAssets,
 } from 'node-starbound-assets';
@@ -8,15 +9,13 @@ import {
   dialog,
   MenuItem,
   BrowserWindow,
-  KeyboardEvent,
   ipcMain,
   IpcMainInvokeEvent,
 } from 'electron';
 import path from 'path';
+import { promises as fs } from 'fs';
 
-if (module.hot) {
-  module.hot.accept();
-}
+import { Player as PlayerData } from '../types/player';
 
 interface ResourceResponse {
   path: string;
@@ -28,14 +27,60 @@ const userHome = process.cwd() || process.env.HOME || process.env.USERPROFILE;
 class Communicator {
   protected resources?: PackedAssets;
   protected player?: Player;
+  protected playerPath?: string;
 
-  constructor() {
+  constructor(communicator?: Communicator) {
+    if (communicator) {
+      communicator.detach();
+      this.resources = communicator.resources;
+      this.player = communicator.player;
+      this.playerPath = communicator.playerPath;
+    }
+
     ipcMain.handle('get-resource', this.getResource.bind(this));
+    ipcMain.handle('save-player', this.savePlayer.bind(this));
   }
 
-  loadPlayer(player: Player, resources: PackedAssets): void {
+  detach(): void {
+    ipcMain.removeHandler('get-resource');
+    ipcMain.removeHandler('save-player');
+  }
+
+  loadPlayer(
+    playerPath: string,
+    player: Player,
+    resources: PackedAssets
+  ): void {
     this.resources = resources;
     this.player = player;
+    this.playerPath = playerPath;
+  }
+
+  protected async savePlayer(
+    _event: IpcMainInvokeEvent,
+    ...[player]: PlayerData[]
+  ): Promise<void> {
+    if (!this.player || !this.playerPath)
+      throw new Error('invalid state: need to load a player first');
+
+    this.player.contents.content = player;
+
+    const bytes = await savePlayerAsync(this.player);
+    const parsedPath = path.parse(this.playerPath);
+
+    let highest = 0;
+    for (const entry of await fs.readdir(parsedPath.dir)) {
+      const [, lastBakStr] = /\.(\d+)\.player$/.exec(entry) || [];
+      const lastBak = parseInt(lastBakStr);
+      if (lastBak > highest) highest = lastBak;
+    }
+
+    await fs.rename(
+      this.playerPath,
+      path.join(parsedPath.dir, `${parsedPath.name}.${highest + 1}.player`)
+    );
+
+    await fs.writeFile(this.playerPath, new Uint8Array(bytes));
   }
 
   protected async getResource(
@@ -52,7 +97,19 @@ class Communicator {
   }
 }
 
-const communicator = new Communicator();
+let communicator: Communicator | null = null;
+
+if (module.hot) {
+  module.hot.accept();
+  module.hot.addDisposeHandler((data) => {
+    data.communicator = communicator;
+  });
+  if (module.hot.data && module.hot.data.communicator) {
+    communicator = new Communicator(module.hot.data.communicator);
+  }
+}
+
+if (!communicator) communicator = new Communicator();
 
 export async function openPlayer(
   _menuItem: MenuItem,
@@ -71,7 +128,7 @@ export async function openPlayer(
 
   const packedPath = path.resolve(playerPath, '../packed.pak');
   const resources = await parseAssetsAsync(packedPath);
-  communicator.loadPlayer(player, resources);
+  communicator?.loadPlayer(playerPath, player, resources);
 
   console.log('sending event');
   browserWindow.webContents.send('message', {
@@ -85,7 +142,7 @@ export function requestSave(
   browserWindow: BrowserWindow
 ): void {
   browserWindow.webContents.send('message', {
-    name: 'request-save',
+    name: 'save-requested',
     payload: {},
   });
 }

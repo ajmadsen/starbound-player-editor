@@ -99,11 +99,11 @@ struct PlayerSaver(RefCell<Player>);
 
 impl Task for PlayerSaver {
     type Output = Vec<u8>;
-    type Error = ();
+    type Error = Arc<Mutex<starbound_assets::bson::serializer::Error>>;
     type JsEvent = JsArrayBuffer;
 
     fn perform(&self) -> Result<Self::Output, Self::Error> {
-        let player_bytes = save_versioned_json(&mut self.0.borrow_mut().contents);
+        let player_bytes = save_versioned_json(&mut self.0.borrow_mut().contents)?;
         Ok(player_bytes)
     }
 
@@ -192,7 +192,7 @@ fn js_parse_assets(mut cx: FunctionContext) -> JsResult<JsUndefined> {
 fn js_save_player(mut cx: FunctionContext) -> JsResult<JsUndefined> {
     let parg = cx.argument(0)?;
     let player: Player = neon_serde::from_value(&mut cx, parg)?;
-    let cb = cx.argument(1)?;
+    let cb = cx.argument::<JsFunction>(1)?;
     PlayerSaver(player.into()).schedule(cb);
     Ok(cx.undefined())
 }

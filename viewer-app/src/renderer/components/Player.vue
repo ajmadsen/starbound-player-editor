@@ -40,10 +40,12 @@ import {
 import Palette from './Palette.vue';
 import { titleCase, fmtColor } from '../utils';
 import { debounce } from 'lodash';
+import { useStore } from '../store/composition';
 
 export default defineComponent({
   props: {
     player: Object as () => Player,
+    saving: Boolean as () => boolean,
   },
   setup(props) {
     const canvas = ref<HTMLCanvasElement>(null);
@@ -51,6 +53,7 @@ export default defineComponent({
       sprite: null as PlayerSprite | null,
       palettes: [] as [BodyPart, string[]][],
     });
+    const store = useStore();
 
     let ctx: CanvasRenderingContext2D | null | undefined;
     onMounted(() => {
@@ -118,6 +121,21 @@ export default defineComponent({
         if (data.sprite) draw();
       }
     );
+
+    watchEffect(() => {
+      if (!props.saving) return;
+      for (const [part, directive] of Object.entries(colorMap)) {
+        store.commit('applyDirective', {
+          part: part as BodyPart,
+          directive:
+            '?replace;' +
+            Object.entries(directive)
+              .map(([old, new_]) => `${old.slice(1)}=${new_.slice(1)}`)
+              .join(';'),
+        });
+      }
+      store.commit('setSaving', { saving: false });
+    });
 
     return {
       canvas,

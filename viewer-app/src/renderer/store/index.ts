@@ -18,6 +18,7 @@ type Directive = {
 const store = new Vuex.Store({
   state: {
     player: null as Player | null,
+    saving: false,
   },
   mutations: {
     setPlayer(state, { player }): void {
@@ -40,6 +41,9 @@ const store = new Vuex.Store({
           state.player.identity.facialMaskDirectives = directive;
           break;
       }
+    },
+    setSaving(state, { saving }): void {
+      state.saving = saving;
     },
   },
   plugins: [createEventPlugin(SAFE_ORIGIN)],

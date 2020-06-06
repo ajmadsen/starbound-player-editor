@@ -1,5 +1,5 @@
 <template>
-  <player :player="player" />
+  <player :player="player" :saving="saving" />
 </template>
 
 <script lang="ts">
@@ -15,7 +15,8 @@ export default defineComponent({
   setup() {
     const store = useStore();
     const player = computed(() => store.state.player);
-    return { player };
+    const saving = computed(() => store.state.saving);
+    return { player, saving };
   },
 });
 </script>

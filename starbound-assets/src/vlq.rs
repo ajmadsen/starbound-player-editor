@@ -51,7 +51,7 @@ pub fn write_vlqi64<W: std::io::Write>(w: &mut W, n: i64) -> std::io::Result<()>
 }
 
 pub fn write_vlqu64<W: std::io::Write>(w: &mut W, mut n: u64) -> std::io::Result<()> {
-    let mut buf: [u8; 8] = [0 as u8; 8];
+    let mut buf: [u8; 10] = [0 as u8; 10];
     let mut i = buf.len();
     while n > 0 {
         i -= 1;

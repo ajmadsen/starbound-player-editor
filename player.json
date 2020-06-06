@@ -1,0 +1,5132 @@
+{
+  "aiState": {
+    "availableMissions": [],
+    "completedMissions": []
+  },
+  "blueprints": {
+    "knownBlueprints": [
+      {
+        "count": 1,
+        "name": "copperceilinglight",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5mhead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1light",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier4chest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingfarm",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "goldblock",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenbed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6shead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "secretdoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "pethealingstation",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedtomato",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "corncob",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "goldenplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silverscrew",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1bed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cottonwool",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "orangedye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "firedclay",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cobblestonebrick",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "grapplinghook",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4table",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "feroziumwand",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6apants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cavedetector",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bulb",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodengate",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperbox1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "timer",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "titaniumspear",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "greendye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "ironblock",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "simplecapeback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5schest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fullwood2",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "oredetector",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedpoultry",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "browndye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianfancyskirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "rockbrickmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silverbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "scanner",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6schest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smallwallbutton",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "violiumshortsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bottle",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "siliconboard",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossilstation",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railhook",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5achest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "delay",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "volatilepowder",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "roastedcarrot",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mashedpotato",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "durasteelshortsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tshirtchest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bottledwater",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "greydye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "violiumbroadsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "durasteelbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wateringcan",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "huntingspear",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bugnet",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperblock",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperfence",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodpanelling",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fullwood1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "standingturret",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "dlatch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tungstenaxe",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "molotov",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "compositerailplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "treasurehoard",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenwindow2",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "boiledpearlpeas",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silk",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cake",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "glass",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "shortcapeback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "nanowrap",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "stationtram",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "meatdumplings",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier4head",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5ahead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2table",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "yellowstim",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5mchest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "reddye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "refinedviolium",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aegisaltbow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "crosshatch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "burnspray",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "ironbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "durablefishingrod",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bandage",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier2pants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "canvas",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier3pants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "rustyrail",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "countdowntimer",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6mchest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviancommonershirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2chair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "refinedferozium",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1switch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "radiationprotectionback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4switch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railcraftingtable",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "rooftiles",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5shead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "solariumstar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "campfire",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "salve",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "torch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingwheel",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cabinroofing",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bluedye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "teddybearplush",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wicker",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1door",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "dyeremover",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "glassmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "string",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6mpants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6spants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "minifridge",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "rustyrailplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier3chest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "composite01material",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossilbrushstudent",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "brickmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "sweetpopcorn",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fridge",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "syringe",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mannequin",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "platform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2light",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianadventurershirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6achest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperwindow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier2head",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedribmeat",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "greenstim",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "drain",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperroofing",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bigredbutton",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodencookingtable",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "ironshortsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "boxingglove",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftinganvil",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bomb",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "pettether",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "or",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "proximitysensor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianadventurerpants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "inventorstable",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenwateringcan",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossildisplay3",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bluestim",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mininglantern",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenchair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodendoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "secrettrapdoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "yellowdye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bonbons",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mediummetal",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wiringstation",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "compoundbow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2door",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingfurnace",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "flashlight",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "coppershelf",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "climbingrope",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "alarm",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenwindow1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bread",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingfurniture",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier3head",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianshipdoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier1head",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3door",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "refinedaegisalt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2bed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6mhead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "packeddirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "relocator",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smallbattery",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossilbrushbeginner",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "asphalt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianfancyshirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tungstenbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fence",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossildisplay1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianworkerpants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "titaniumbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "darksmoothstonematerial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "blackdye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1chair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "xor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "chain",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wire",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "scarecrow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "coppersupport",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mininghathead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3table",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3switch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aegisaltpistol",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4chair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "coffee",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "syntheticmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "liquidsensor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "battery",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railswitch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "ironbroadsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silverplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedfish",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "refinery",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "durasteelbroadsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mothtrap",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "not",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "capturepod",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperlantern",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5spants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianworkershirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smallfloorbutton",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1spotlight",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "halogenpack",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossildisplay5",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "whitedye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4door",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier2chest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "breathprotectionback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railstop",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "purpledye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4bed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodencrate1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3light",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3bed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "flagavian",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "pinkdye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smallwallswitch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5mpants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "goldbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "hoe",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tinywallswitch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingmedical",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "compositerail",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodsupport",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier1chest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4light",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "medkit",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1table",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "thatch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "3dprinter",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6ahead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "popcorn",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodtable",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedbacon",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wickersupport",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "paper",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "titaniumdagger",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier4pants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silverblock",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railtramstop",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railsensor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tungstenhammer",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bakedpotato",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianshiphatch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "flare",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "darkwoodmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "persistentswitch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "lightsensor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "feroziumstaff",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fabric",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossilbrushmaster",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tungstenbow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "heatprotectionback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3chair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smoothmetal",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedalienmeat",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "coldprotectionback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "and",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "heavypipe",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2switch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "pixelcompressor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "antidote",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianstoragelocker",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5apants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fishingrod",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodencrate2",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "startershield",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "redstim",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "capturestation",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenverticaldoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "boiledrice",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviancommonerlegs",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodbridge",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier1pants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tinywallbutton",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railbumper",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "sprinkler",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "lanternstickback",
+        "parameters": {}
+      }
+    ],
+    "newBlueprints": [
+      {
+        "count": 1,
+        "name": "copperceilinglight",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5mhead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1light",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier4chest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingfarm",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "goldblock",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenbed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6shead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "secretdoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "pethealingstation",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedtomato",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "corncob",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "goldenplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silverscrew",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1bed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cottonwool",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "orangedye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "firedclay",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cobblestonebrick",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "grapplinghook",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4table",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "feroziumwand",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6apants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cavedetector",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bulb",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodengate",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperbox1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "timer",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "titaniumspear",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "greendye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "ironblock",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "simplecapeback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5schest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fullwood2",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "oredetector",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedpoultry",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "browndye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianfancyskirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "rockbrickmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silverbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "scanner",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6schest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smallwallbutton",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "violiumshortsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bottle",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "siliconboard",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossilstation",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railhook",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5achest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "delay",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "volatilepowder",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "roastedcarrot",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mashedpotato",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "durasteelshortsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tshirtchest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bottledwater",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "greydye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "violiumbroadsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "durasteelbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wateringcan",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "huntingspear",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bugnet",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperblock",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperfence",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodpanelling",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fullwood1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "standingturret",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "dlatch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tungstenaxe",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "molotov",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "compositerailplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "treasurehoard",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenwindow2",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "boiledpearlpeas",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silk",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cake",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "glass",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "shortcapeback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "nanowrap",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "stationtram",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "meatdumplings",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier4head",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5ahead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2table",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "yellowstim",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5mchest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "reddye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "refinedviolium",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aegisaltbow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "crosshatch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "burnspray",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "ironbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "durablefishingrod",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bandage",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier2pants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "canvas",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier3pants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "rustyrail",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "countdowntimer",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6mchest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviancommonershirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2chair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "refinedferozium",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1switch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "radiationprotectionback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4switch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railcraftingtable",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "rooftiles",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5shead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "solariumstar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "campfire",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "salve",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "torch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingwheel",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cabinroofing",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bluedye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "teddybearplush",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wicker",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1door",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "dyeremover",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "glassmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "string",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6mpants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6spants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "minifridge",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "rustyrailplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier3chest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "composite01material",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossilbrushstudent",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "brickmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "sweetpopcorn",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fridge",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "syringe",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mannequin",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "platform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2light",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianadventurershirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6achest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperwindow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier2head",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedribmeat",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "greenstim",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "drain",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperroofing",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bigredbutton",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodencookingtable",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "ironshortsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "boxingglove",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftinganvil",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bomb",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "pettether",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "or",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "proximitysensor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianadventurerpants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "inventorstable",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenwateringcan",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossildisplay3",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bluestim",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mininglantern",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenchair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodendoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "secrettrapdoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "yellowdye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bonbons",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mediummetal",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wiringstation",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "compoundbow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2door",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingfurnace",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "flashlight",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "coppershelf",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "climbingrope",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "alarm",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenwindow1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bread",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingfurniture",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier3head",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianshipdoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier1head",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3door",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "refinedaegisalt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2bed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6mhead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "packeddirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "relocator",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smallbattery",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossilbrushbeginner",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "asphalt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianfancyshirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tungstenbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fence",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossildisplay1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianworkerpants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "titaniumbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "darksmoothstonematerial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "blackdye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1chair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "xor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "chain",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wire",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "scarecrow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "coppersupport",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mininghathead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3table",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3switch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aegisaltpistol",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4chair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "coffee",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "syntheticmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "liquidsensor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "battery",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railswitch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "ironbroadsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silverplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedfish",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperplatform",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "refinery",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "durasteelbroadsword",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "mothtrap",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "not",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "capturepod",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "copperlantern",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5spants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianworkershirt",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smallfloorbutton",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1spotlight",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "halogenpack",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossildisplay5",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "whitedye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4door",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier2chest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "breathprotectionback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railstop",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "purpledye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4bed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodencrate1",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3light",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3bed",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "flagavian",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "pinkdye",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smallwallswitch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5mpants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "goldbar",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "hoe",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tinywallswitch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "craftingmedical",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "compositerail",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodsupport",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier1chest",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier4light",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "medkit",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier1table",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "thatch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "3dprinter",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier6ahead",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "popcorn",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodtable",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedbacon",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "wickersupport",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "paper",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "titaniumdagger",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier4pants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "silverblock",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railtramstop",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railsensor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tungstenhammer",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "bakedpotato",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianshiphatch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "flare",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "darkwoodmaterial",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "persistentswitch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "lightsensor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "feroziumstaff",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fabric",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fossilbrushmaster",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tungstenbow",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "heatprotectionback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier3chair",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "smoothmetal",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "cookedalienmeat",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "coldprotectionback",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "and",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "heavypipe",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tier2switch",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "pixelcompressor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "antidote",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "avianstoragelocker",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier5apants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "fishingrod",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodencrate2",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "startershield",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "redstim",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "capturestation",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodenverticaldoor",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "boiledrice",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviancommonerlegs",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "woodbridge",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "aviantier1pants",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "tinywallbutton",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "railbumper",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "sprinkler",
+        "parameters": {}
+      },
+      {
+        "count": 1,
+        "name": "lanternstickback",
+        "parameters": {}
+      }
+    ]
+  },
+  "codexes": {
+    "protectorate1": true,
+    "protectorate2": true
+  },
+  "companions": {
+    "companions": {
+      "crew": [],
+      "followers": [],
+      "pets": [],
+      "shipCrew": []
+    },
+    "scriptStorage": {
+      "activePods": {},
+      "pods": {},
+      "recruits": {
+        "beenOnShip": {}
+      }
+    }
+  },
+  "deployment": {
+    "scriptStorage": {}
+  },
+  "description": "This guy seems to have nothing to say for himself.",
+  "genericProperties": {},
+  "genericScriptStorage": {
+    "bounty": {},
+    "stealing": {}
+  },
+  "identity": {
+    "bodyDirectives": "?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+    "color": [
+      51,
+      117,
+      237
+    ],
+    "emoteDirectives": "?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+    "facialHairDirectives": "?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+    "facialHairGroup": "fluff",
+    "facialHairType": "7",
+    "facialMaskDirectives": "?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+    "facialMaskGroup": "beaks",
+    "facialMaskType": "4",
+    "gender": "male",
+    "hairDirectives": "?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+    "hairGroup": "hair",
+    "hairType": "14",
+    "name": "Ixtlin",
+    "personalityArmIdle": "idle.5",
+    "personalityArmOffset": [
+      0.0,
+      0.0
+    ],
+    "personalityHeadOffset": [
+      0.0,
+      0.0
+    ],
+    "personalityIdle": "idle.5",
+    "species": "avian"
+  },
+  "inventory": {
+    "backCosmeticSlot": null,
+    "backSlot": null,
+    "beamAxe": null,
+    "chestCosmeticSlot": null,
+    "chestSlot": {
+      "content": {
+        "count": 1,
+        "name": "avianworkershirt",
+        "parameters": {
+          "colorIndex": 1445436291
+        }
+      },
+      "id": "Item",
+      "version": 8
+    },
+    "currencies": {
+      "essence": 0,
+      "money": 0
+    },
+    "customBar": [
+      [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ]
+      ],
+      [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ]
+      ]
+    ],
+    "customBarGroup": 0,
+    "headCosmeticSlot": null,
+    "headSlot": null,
+    "inspectionTool": {
+      "content": {
+        "count": 1,
+        "name": "inspectionmode",
+        "parameters": {}
+      },
+      "id": "Item",
+      "version": 8
+    },
+    "itemBags": {
+      "foodBag": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "mainBag": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "materialBag": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "objectBag": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reagentBag": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "legsCosmeticSlot": null,
+    "legsSlot": {
+      "content": {
+        "count": 1,
+        "name": "avianfancyskirt",
+        "parameters": {
+          "colorIndex": 1456674252
+        }
+      },
+      "id": "Item",
+      "version": 8
+    },
+    "paintTool": null,
+    "selectedActionBar": null,
+    "swapSlot": null,
+    "trashSlot": null,
+    "wireTool": null
+  },
+  "log": {
+    "cinematics": [
+      "/cinematics/intro/introstart.cinematic"
+    ],
+    "collections": {},
+    "deathCount": 0,
+    "introComplete": false,
+    "playTime": 14.066667400300503,
+    "radioMessages": [],
+    "scannedObjects": []
+  },
+  "modeType": "survival",
+  "movementController": {
+    "crouching": false,
+    "facingDirection": "left",
+    "movingDirection": "left",
+    "position": [
+      118.0,
+      815.875
+    ],
+    "rotation": 0.0,
+    "velocity": [
+      0.0,
+      -1.2708332538604736
+    ]
+  },
+  "quests": {
+    "currentQuest": "protectorate",
+    "quests": {
+      "protectorate": {
+        "content": {
+          "arc": {
+            "content": {
+              "quests": [
+                {
+                  "content": {
+                    "parameters": {},
+                    "questId": "protectorate",
+                    "seed": -1503996624238828720,
+                    "templateId": "protectorate"
+                  },
+                  "id": "QuestDescriptor",
+                  "version": 3
+                }
+              ],
+              "stagehandUniqueId": null
+            },
+            "id": "QuestArcDescriptor",
+            "version": 1
+          },
+          "arcPos": 0,
+          "canTurnIn": false,
+          "completionText": "The years of training paid off - you survived graduation day!",
+          "failureText": "",
+          "indicators": [],
+          "lastUpdatedOn": 741795602,
+          "location": null,
+          "money": 50,
+          "parameters": {
+            "beamaxe": {
+              "indicator": null,
+              "item": {
+                "content": {
+                  "count": 1,
+                  "name": "protectoratebeamaxe",
+                  "parameters": {}
+                },
+                "id": "Item",
+                "version": 8
+              },
+              "name": null,
+              "portrait": null,
+              "type": "item"
+            },
+            "player": {
+              "gender": "male",
+              "indicator": null,
+              "name": "Ixtlin",
+              "portrait": [
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/humanoid/avian/backarm.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/items/armors/avian/avian-worker/bsleeve.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/humanoid/avian/malehead.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/humanoid/avian/emote.png:idle.1?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/humanoid/avian/hair/14.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/humanoid/avian/malebody.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/items/armors/avian/avian-fancy/pants.png:idle.5??replace;6f2919=472b13;ffca8a=ccae7c;e0975c=a47844;a85636=754c23",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/items/armors/avian/avian-worker/chestm.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/humanoid/avian/fluff/7.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/humanoid/avian/beaks/4.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/humanoid/avian/frontarm.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                },
+                {
+                  "color": [
+                    255,
+                    255,
+                    255
+                  ],
+                  "fullbright": false,
+                  "image": "/items/armors/avian/avian-worker/fsleeve.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                  "position": [
+                    0.0,
+                    0.0
+                  ],
+                  "transformation": [
+                    [
+                      1.0,
+                      0.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      1.0,
+                      -21.5
+                    ],
+                    [
+                      0.0,
+                      0.0,
+                      1.0
+                    ]
+                  ]
+                }
+              ],
+              "species": "avian",
+              "type": "entity",
+              "uniqueId": "c75356ebfb10a0111500b4985132688b"
+            },
+            "sail": {
+              "indicator": null,
+              "name": "S.A.I.L",
+              "portrait": [
+                {
+                  "image": "/ai/portraits/avianquestportrait.png"
+                }
+              ],
+              "type": "noDetail"
+            },
+            "uniformLocker": {
+              "indicator": null,
+              "item": {
+                "content": {
+                  "count": 1,
+                  "name": "protectoratelobbylockers2",
+                  "parameters": {}
+                },
+                "id": "Item",
+                "version": 8
+              },
+              "name": null,
+              "portrait": null,
+              "type": "item"
+            },
+            "weaponChest": {
+              "indicator": null,
+              "item": {
+                "content": {
+                  "count": 1,
+                  "name": "weaponchest",
+                  "parameters": {}
+                },
+                "id": "Item",
+                "version": 8
+              },
+              "name": null,
+              "portrait": null,
+              "type": "item"
+            }
+          },
+          "portraitTitles": {
+            "QuestComplete": "Ixtlin",
+            "QuestFailed": "Ixtlin",
+            "QuestStarted": "Ixtlin"
+          },
+          "portraits": {
+            "QuestComplete": [
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/backarm.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-worker/bsleeve.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/malehead.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/emote.png:idle.1?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/hair/14.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/malebody.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-fancy/pants.png:idle.5??replace;6f2919=472b13;ffca8a=ccae7c;e0975c=a47844;a85636=754c23",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-worker/chestm.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/fluff/7.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/beaks/4.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/frontarm.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-worker/fsleeve.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              }
+            ],
+            "QuestFailed": [
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/backarm.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-worker/bsleeve.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/malehead.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/emote.png:idle.1?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/hair/14.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/malebody.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-fancy/pants.png:idle.5??replace;6f2919=472b13;ffca8a=ccae7c;e0975c=a47844;a85636=754c23",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-worker/chestm.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/fluff/7.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/beaks/4.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/frontarm.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-worker/fsleeve.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              }
+            ],
+            "QuestStarted": [
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/backarm.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-worker/bsleeve.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/malehead.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/emote.png:idle.1?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/hair/14.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/malebody.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-fancy/pants.png:idle.5??replace;6f2919=472b13;ffca8a=ccae7c;e0975c=a47844;a85636=754c23",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-worker/chestm.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/fluff/7.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/beaks/4.png:normal?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/humanoid/avian/frontarm.png:idle.5?replace;735e3a=977841;dc1f00=d7e8e8;6f2919=6a3836;ffca8a=f0608b;be1b00=8fa7a3;951500=5d6d69;a38d59=c1a24e;e0975c=cd5061;d9c189=eacf60;a85636=95484c;f32200=f6fbfb",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              },
+              {
+                "color": [
+                  255,
+                  255,
+                  255
+                ],
+                "fullbright": false,
+                "image": "/items/armors/avian/avian-worker/fsleeve.png:idle.5??replace;6f2919=373737;ffca8a=e6e6e6;e0975c=b6b6b6;a85636=7b7b7b",
+                "position": [
+                  0.0,
+                  0.0
+                ],
+                "transformation": [
+                  [
+                    1.0,
+                    0.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    -21.5
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ]
+              }
+            ]
+          },
+          "rewards": [],
+          "scriptStorage": {
+            "starterChest": {
+              "count": 1,
+              "name": "avianworkershirt",
+              "parameters": {
+                "colorIndex": 1445436291
+              }
+            },
+            "starterLegs": {
+              "count": 1,
+              "name": "avianfancyskirt",
+              "parameters": {
+                "colorIndex": 1456674252
+              }
+            }
+          },
+          "serverUuid": null,
+          "showDialog": false,
+          "state": "Active",
+          "text": "Survive graduation day.",
+          "title": "The Protectorate",
+          "unread": true,
+          "worldId": null
+        },
+        "id": "Quest",
+        "version": 3
+      }
+    }
+  },
+  "shipUpgrades": {
+    "capabilities": [],
+    "crewSize": 2,
+    "fuelEfficiency": 0.0,
+    "maxFuel": 1000,
+    "shipLevel": 0,
+    "shipSpeed": 15.0
+  },
+  "statusController": {
+    "ephemeralEffects": [],
+    "persistentEffectCategories": {
+      "environment": [
+        "dontstarve"
+      ]
+    },
+    "resourceValues": {
+      "breath": 100.0,
+      "damageAbsorption": 0.0,
+      "energy": 100.0,
+      "energyRegenBlock": 0.0,
+      "food": 70.0,
+      "health": 100.0,
+      "perfectBlock": 0.0,
+      "perfectBlockLimit": 1.0,
+      "shieldStamina": 1.0,
+      "shieldStaminaRegenBlock": 0.0
+    },
+    "resourcesLocked": {
+      "breath": false,
+      "damageAbsorption": false,
+      "energy": false,
+      "energyRegenBlock": false,
+      "food": false,
+      "health": false,
+      "perfectBlock": false,
+      "perfectBlockLimit": false,
+      "shieldStamina": false,
+      "shieldStaminaRegenBlock": false
+    },
+    "statusProperties": {
+      "breathHealthPenaltyPercentageRate": 0.05,
+      "damageFlashOffDirectives": "multiply=ffffff00=0.85",
+      "damageFlashOnDirectives": "",
+      "hitInvulnerabilityFlash": 0.15,
+      "hitInvulnerabilityThreshold": 0.1,
+      "hitInvulnerabilityTime": 1,
+      "mouthPosition": [
+        0,
+        0.75
+      ],
+      "ouchNoise": "/sfx/humanoid/avianhurt_male1.ogg",
+      "shieldHitInvulnerabilityTime": 1.0,
+      "targetMaterialKind": "organic"
+    }
+  },
+  "team": {
+    "team": 0,
+    "type": "friendly"
+  },
+  "techController": {
+    "techModules": []
+  },
+  "techs": {
+    "availableTechs": [],
+    "enabledTechs": [],
+    "equippedTechs": {}
+  },
+  "universeMap": {
+    "d1ff84bd571b9904851756db18c51893": {
+      "systems": [
+        [
+          [
+            -490078357,
+            -291207754,
+            -87566064
+          ],
+          {
+            "bookmarks": [],
+            "mappedObjects": {},
+            "mappedPlanets": [
+              {
+                "location": [
+                  -490078357,
+                  -291207754,
+                  -87566064
+                ],
+                "planet": 7,
+                "satellite": 0
+              }
+            ]
+          }
+        ]
+      ],
+      "teleportBookmarks": []
+    }
+  },
+  "uuid": "c75356ebfb10a0111500b4985132688b"
+}

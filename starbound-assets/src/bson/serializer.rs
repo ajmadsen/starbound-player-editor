@@ -7,7 +7,7 @@ use {
     std::io::Write,
 };
 
-pub struct Error(Box<dyn std::fmt::Display>);
+pub struct Error(pub String);
 
 impl std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -28,7 +28,7 @@ impl ser::Error for Error {
     where
         T: std::fmt::Display,
     {
-        Self(Box::new(format!("{}", msg)))
+        Self(format!("{}", msg))
     }
 }
 
@@ -39,9 +39,9 @@ pub struct Serializer<W: Write> {
 fn write_int<T: ToPrimitive + Debug + Copy, W: Write>(w: &mut W, val: T) -> Result<(), Error> {
     let val: i64 = <i64 as NumCast>::from(val)
         .ok_or(format!("cannot represent {:?}", val))
-        .map_err(|e| Error(Box::new(e)))?;
-    w.write_all(&[b'\x04']).map_err(|e| Error(Box::new(e)))?;
-    write_vlqi64(w, val).map_err(|e| Error(Box::new(e)))
+        .map_err(SerError::custom)?;
+    w.write_all(&[b'\x04']).map_err(SerError::custom)?;
+    write_vlqi64(w, val).map_err(SerError::custom)
 }
 
 impl<'a, W: Write> ser::Serializer for &'a mut Serializer<W> {
@@ -60,7 +60,7 @@ impl<'a, W: Write> ser::Serializer for &'a mut Serializer<W> {
         let bytes: [u8; 2] = [b'\x03', if v { b'\x01' } else { b'\x00' }];
         self.writer
             .write_all(&bytes[..])
-            .map_err(|e| Error(Box::new(e)))?;
+            .map_err(SerError::custom)?;
         Ok(())
     }
 
@@ -103,25 +103,24 @@ impl<'a, W: Write> ser::Serializer for &'a mut Serializer<W> {
     fn serialize_f64(self, v: f64) -> Result<Self::Ok, Self::Error> {
         self.writer
             .write_all(&[b'\x02'])
-            .map_err(|e| Error(Box::new(e)))?;
+            .map_err(SerError::custom)?;
         self.writer
             .write_f64::<BigEndian>(v)
-            .map_err(|e| Error(Box::new(e)))
+            .map_err(SerError::custom)
     }
 
     fn serialize_char(self, v: char) -> Result<Self::Ok, Self::Error> {
-        self.serialize_str(&v.to_string())
-            .map_err(|e| Error(Box::new(e)))
+        self.serialize_str(&v.to_string()).map_err(SerError::custom)
     }
 
     fn serialize_str(self, v: &str) -> Result<Self::Ok, Self::Error> {
         self.writer
             .write_all(&[b'\x05'])
-            .map_err(|e| Error(Box::new(e)))?;
-        write_vlqu64(&mut self.writer, v.len() as u64).map_err(|e| Error(Box::new(e)))?;
+            .map_err(SerError::custom)?;
+        write_vlqu64(&mut self.writer, v.len() as u64).map_err(SerError::custom)?;
         self.writer
             .write_all(v.as_bytes())
-            .map_err(|e| Error(Box::new(e)))
+            .map_err(SerError::custom)
     }
 
     fn serialize_bytes(self, v: &[u8]) -> Result<Self::Ok, Self::Error> {
@@ -145,9 +144,7 @@ impl<'a, W: Write> ser::Serializer for &'a mut Serializer<W> {
     }
 
     fn serialize_unit(self) -> Result<Self::Ok, Self::Error> {
-        self.writer
-            .write_all(&[b'\x01'])
-            .map_err(|e| Error(Box::new(e)))
+        self.writer.write_all(&[b'\x01']).map_err(SerError::custom)
     }
 
     fn serialize_unit_struct(self, _name: &'static str) -> Result<Self::Ok, Self::Error> {
@@ -193,8 +190,8 @@ impl<'a, W: Write> ser::Serializer for &'a mut Serializer<W> {
         }
         self.writer
             .write_all(&[b'\x06'])
-            .map_err(|e| Error(Box::new(e)))?;
-        write_vlqu64(&mut self.writer, len.unwrap() as u64).map_err(|e| Error(Box::new(e)))?;
+            .map_err(SerError::custom)?;
+        write_vlqu64(&mut self.writer, len.unwrap() as u64).map_err(SerError::custom)?;
         Ok(self)
     }
 
@@ -226,7 +223,8 @@ impl<'a, W: Write> ser::Serializer for &'a mut Serializer<W> {
         }
         self.writer
             .write_all(&[b'\x07'])
-            .map_err(|e| Error(Box::new(e)))?;
+            .map_err(SerError::custom)?;
+        write_vlqu64(&mut self.writer, len.unwrap() as u64).map_err(SerError::custom)?;
         Ok(self)
     }
 
@@ -304,7 +302,8 @@ impl<'a, W: Write> ser::SerializeMap for &'a mut Serializer<W> {
     where
         T: serde::Serialize,
     {
-        key.serialize(&mut **self)
+        let ks = KeySerializer(&mut **self, key);
+        key.serialize(ks)
     }
 
     fn serialize_value<T: ?Sized>(&mut self, value: &T) -> Result<(), Self::Error>
@@ -340,5 +339,165 @@ impl<'a, W: Write> ser::SerializeStruct for &'a mut Serializer<W> {
 }
 
 pub fn to_writer<T: Write, V: Serialize>(w: T, val: &V) -> Result<(), Error> {
-    val.serialize(&mut Serializer { writer: w })
+    let rs = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+        val.serialize(&mut Serializer { writer: w })
+    }));
+    match rs {
+        Ok(res) => res,
+        Err(e) => {
+            println!("caught error {:?}", e.as_ref());
+            match e.downcast::<String>() {
+                Ok(e) => println!("{:?}", e),
+                Err(_) => (),
+            }
+            panic!()
+        }
+    }
+}
+
+struct KeySerializer<'a, 'b: 'a, K: ?Sized, W: Write>(&'b mut Serializer<W>, &'a K);
+
+impl<'a, 'b: 'a, K: ?Sized, W: Write> ser::Serializer for KeySerializer<'a, 'b, K, W> {
+    type Ok = ();
+    type Error = Error;
+    type SerializeSeq = Impossible<(), Self::Error>;
+    type SerializeTuple = Impossible<(), Self::Error>;
+    type SerializeTupleStruct = Impossible<(), Self::Error>;
+    type SerializeTupleVariant = Impossible<(), Self::Error>;
+    type SerializeMap = Impossible<(), Self::Error>;
+    type SerializeStruct = Impossible<(), Self::Error>;
+    type SerializeStructVariant = Impossible<(), Self::Error>;
+
+    fn serialize_bool(self, _v: bool) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_i8(self, _v: i8) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_i16(self, _v: i16) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_i32(self, _v: i32) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_i64(self, _v: i64) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_u8(self, _v: u8) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_u16(self, _v: u16) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_u32(self, _v: u32) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_u64(self, _v: u64) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_f32(self, _v: f32) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_f64(self, _v: f64) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_char(self, _v: char) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_str(self, v: &str) -> Result<Self::Ok, Self::Error> {
+        write_vlqu64(&mut self.0.writer, v.len() as u64).map_err(SerError::custom)?;
+        self.0
+            .writer
+            .write_all(v.as_bytes())
+            .map_err(SerError::custom)
+    }
+    fn serialize_bytes(self, _v: &[u8]) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_none(self) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_some<T: ?Sized>(self, _value: &T) -> Result<Self::Ok, Self::Error>
+    where
+        T: Serialize,
+    {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_unit(self) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_unit_struct(self, _name: &'static str) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_unit_variant(
+        self,
+        _name: &'static str,
+        _variant_index: u32,
+        _variant: &'static str,
+    ) -> Result<Self::Ok, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_newtype_struct<T: ?Sized>(
+        self,
+        _name: &'static str,
+        _value: &T,
+    ) -> Result<Self::Ok, Self::Error>
+    where
+        T: Serialize,
+    {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_newtype_variant<T: ?Sized>(
+        self,
+        _name: &'static str,
+        _variant_index: u32,
+        _variant: &'static str,
+        _value: &T,
+    ) -> Result<Self::Ok, Self::Error>
+    where
+        T: Serialize,
+    {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_seq(self, _len: Option<usize>) -> Result<Self::SerializeSeq, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_tuple(self, _len: usize) -> Result<Self::SerializeTuple, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_tuple_struct(
+        self,
+        _name: &'static str,
+        _len: usize,
+    ) -> Result<Self::SerializeTupleStruct, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_tuple_variant(
+        self,
+        _name: &'static str,
+        _variant_index: u32,
+        _variant: &'static str,
+        _len: usize,
+    ) -> Result<Self::SerializeTupleVariant, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_map(self, _len: Option<usize>) -> Result<Self::SerializeMap, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_struct(
+        self,
+        _name: &'static str,
+        _len: usize,
+    ) -> Result<Self::SerializeStruct, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
+    fn serialize_struct_variant(
+        self,
+        _name: &'static str,
+        _variant_index: u32,
+        _variant: &'static str,
+        _len: usize,
+    ) -> Result<Self::SerializeStructVariant, Self::Error> {
+        Err(SerError::custom("key must be a string"))
+    }
 }

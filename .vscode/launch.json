@@ -15,6 +15,14 @@
       "environment": [{ "name": "RUST_BACKTRACE", "value": "1" }],
       "externalConsole": false,
       "requireExactSource": false
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch NSA test",
+      "program": "${workspaceFolder}/node-starbound-assets/test.js",
+      "cwd": "${workspaceFolder}/node-starbound-assets",
+      "skipFiles": ["<node_internals>/**"]
     }
   ]
 }

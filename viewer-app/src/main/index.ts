@@ -5,12 +5,6 @@ import { format as formatUrl } from 'url';
 
 declare const PRELOAD_SCRIPT: any;
 
-declare global {
-  interface NodeModule {
-    hot: any;
-  }
-}
-
 if (module.hot) {
   module.hot.accept();
 }
